@@ -3,21 +3,20 @@ sidebar_position: 1
 ---
 
 # Rest API
-The backend exposes a REST api to utilize external services and get, modify, delete datasets and tables.
-The rest API is organized in three layers: services, controllers, routes.
+The backend exposes a REST API to utilize external services and get, modify, delete datasets and tables. The API is organized into three layers: services, controllers, routes.
 
 ## Services
 A service is where most of the logic resides (*e.g.: filesystem service, parse service, export service..*.) and is placed in `/src/api/services`.
-For example the **FileSystem Service** handles the reading and writing of files on the file system. At the moment of writing the database of tables and dataset resides on the file system, but in the future this service can be easily replaced by a service which handles the communication with a real DB.
+For example, the **FileSystem Service** handles the reading and writing of files on the file system. At the moment of writing the database of tables and dataset resides on the file system, but in the future, this service can be easily replaced by a service that handles the communication with a real DB.
 
 ## Controllers
-A controller is the interface with a http request and uses one or more services to process the incoming request and give back a response.
+A controller is the interface with a HTTP request and uses one or more services to process the incoming request and give back a response.
 
 ## Routes
-A route corresponses to a mapping between an API endpoint and a controller function.
+A route corresponds to a mapping between an API endpoint and a controller function.
 
 
-Here is presented a list of all endpoint which are available at the moment of writing:
+Here is presented a list of all endpoints which are available at the moment of writing:
 
 | Endpoint      | Method | Return |
 | ----------- | ----------- | ---

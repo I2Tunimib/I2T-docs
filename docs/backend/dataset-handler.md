@@ -5,7 +5,7 @@ sidebar_position: 2
 # Dataset handler
 
 Datasets and tables are handled by the Dataset Service located in `/src/api/services/datasets/dataset.service.js`.
-At the moment of writing no real database exists and it is all handled on the local filesystem.
+At the moment of writing, no real database exists and it is all handled on the local filesystem.
 
 The local filesystem is based on two MongoDB collections which are handled with two **JSON** files:
 
@@ -14,7 +14,7 @@ The local filesystem is based on two MongoDB collections which are handled with 
 
 Meanwhile dataset and tables files are organized in a hierarchical structure in `/public/datasets/[datasetId]/[tableId].json` where each json file corresponds to a table of dataset with id `datasetId`.
 
-To facilitate the integration of new information for a dataset / table in the frontend interface, a **javascript object** describes how and which fields to show in the view.
+To facilitate the integration of new information for a dataset/table in the frontend interface, a **javascript object** describes how and which fields to show in the view.
 This javascript object is located in `/src/api/services/datasets/dataset.service.js`:
 
 ```js
