@@ -13,4 +13,5 @@ jobs:
       
       - name: deploy
         run: |
-          ls
+          yarn install
+          yarn deploy
