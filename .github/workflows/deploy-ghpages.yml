@@ -14,4 +14,4 @@ jobs:
       - name: deploy
         run: |
           yarn install
-          yarn deploy
+          GIT_USER=${{ secrets.GIT_USER }} yarn deploy
