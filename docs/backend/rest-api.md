@@ -1,19 +1,30 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
 ---
 
 # Rest API
-The backend exposes a REST API to utilize external services and get, modify, delete datasets and tables. The API is organized into three layers: services, controllers, routes.
+The backend functionalities are exposed to the client through a REST
+API, which provides endpoints for handling tables changes and query external
+services. The API structure is built following a three layers architecture:
 
-## Services
-A service is where most of the logic resides (*e.g.: filesystem service, parse service, export service..*.) and is placed in `/src/api/services`.
-For example, the **FileSystem Service** handles the reading and writing of files on the file system. At the moment of writing the database of tables and dataset resides on the file system, but in the future, this service can be easily replaced by a service that handles the communication with a real DB.
+<div style={{textAlign: 'center'}}>
+  <img src="/img/layers-backend.png" />
+</div>
 
-## Controllers
-A controller is the interface with a HTTP request and uses one or more services to process the incoming request and give back a response.
-
-## Routes
-A route corresponds to a mapping between an API endpoint and a controller function.
+- *Route*: a route defines an API endpoint and it’s the highest layer in
+the architecture. The client side application interacts with routes to
+communicate with the backend.
+- *Controller*: a controller groups requests handlers of a common API re-
+source. For example, a dataset controller provides handlers for requests
+that create, update, delete, search a dataset.
+- *Service*: a service contains the business logic of part of the application
+and it’s the lowest layer of the API architecture. Services are used
+throughout the whole application using composition. For example, a
+controller may use multiple services to handle the request from a client
+and return a response, e.g.: when the client sends a request to create
+a new table, a service might provide the function to parse the table to
+the internal format and then, another service is used to store the table
+on the file system.
 
 
 Here is presented a list of all endpoints which are available at the moment of writing:
