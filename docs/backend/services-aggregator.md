@@ -3,8 +3,7 @@ sidebar_position: 5
 ---
 
 # External services aggregator
-Many services might be available to perform operations required for the Semantic Enrichment of a table. For ex-
-ample, multiple services can provide their own logic to perform a STI approach and generate annotations for a given table. Some other services might
+Many services might be available to perform operations required for the Semantic Enrichment of a table. For example, multiple services can provide their own logic to perform a STI approach and generate annotations for a given table. Some other services might
 operate only on some of the annotation levels, i.e.: reconciliators that provide instance-level annotations for the table cells, or reconciliators that work
 on the schema-level annotation of the table, mapping columns to ontology
 concepts, determine the subject, named-entity, or literal column, or finding

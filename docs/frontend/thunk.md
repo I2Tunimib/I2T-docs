@@ -44,8 +44,7 @@ action SELECT CELL will be fired;
 can be initiated to query a specific reconciliator endpoint;
 4. the thunk middleware receives the action payload with the currently
 selected cells and queries a reconciliation endpoint;
-5. the reconciliation endpoint, e.g.: RECONCILE ASIA, is previously de-
-fined where the path to it is specified;
+5. the reconciliation endpoint, e.g.: RECONCILE ASIA, is previously defined where the path to it is specified;
 6. if the request fails, the error is automatically handled by the framework,
 so that no additional code is required when additional endpoints are
 added;

@@ -28,9 +28,7 @@ optimizing most of the operations, for example preventing users to constantly
 iterate over arrays to find a specific entity.
 
 The combination of both a normalized and globally available state makes
-it possible to initiate actions from various components, e.g.: deleting a col-
-umn from a contextual menu inside a component representing the same col-
-umn, but also from a component completely external to the table, without
+it possible to initiate actions from various components, e.g.: deleting a column from a contextual menu inside a component representing the same column, but also from a component completely external to the table, without
 giving up on performances and without passing unneeded properties to nested
 React components.
 

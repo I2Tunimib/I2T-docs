@@ -14,8 +14,7 @@ services. The API structure is built following a three layers architecture:
 - *Route*: a route defines an API endpoint and it’s the highest layer in
 the architecture. The client side application interacts with routes to
 communicate with the backend.
-- *Controller*: a controller groups requests handlers of a common API re-
-source. For example, a dataset controller provides handlers for requests
+- *Controller*: a controller groups requests handlers of a common API resource. For example, a dataset controller provides handlers for requests
 that create, update, delete, search a dataset.
 - *Service*: a service contains the business logic of part of the application
 and it’s the lowest layer of the API architecture. Services are used

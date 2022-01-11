@@ -10,18 +10,15 @@ modular framework for the Semantic Enrichment of Tabular Data,
 adoptable by both experts and non-experts in the context of semantics.
 Nowadays, the enrichment task is at the core of almost every data
 analytics pipeline, and at the same time, it proves to be also costly
-in both time and money. For this reason, it is important to pro-
-vide data scientists with tools that guide them through the steps of
+in both time and money. For this reason, it is important to provide data scientists with tools that guide them through the steps of
 the enrichment process, supporting them with interactive choices and
 visualizations. Semantics can bridge the gap in finding links across
 datasets and find solutions for the extension step, but it is important
 to include users in the annotation process. Indeed, the extension step
-is strongly related to the semantic annotation, but automatic algo-
-rithms that provide it can fail. However, if results are made available,
+is strongly related to the semantic annotation, but automatic algorithms that provide it can fail. However, if results are made available,
 interpretable, and editable, they can be reviewed and improved by the
 human’s knowledge.
-A study and overview of state-of-the-art tools for both the Seman-
-tic Interpretation and Enrichment task have highlighted some of their
+A study and overview of state-of-the-art tools for both the Semantic Interpretation and Enrichment task have highlighted some of their
 problems. They are limited by not supporting humans in the loop of
 the annotation process, while also not fully providing extension steps
 necessary to complete the enrichment of tabular data. Most of the
@@ -68,8 +65,7 @@ for the annotations resulted from an algorithm of STI and are as follow:
 istance-level annotation;
 - *Column Type Annotation (**CTA**)*: schema-level annotation determined
 to link columns to a KG ontology;
-- *Column Predicate Annotation (**CPA**)*: schema-level annotation deter-
-mined to find binary relations (proerties of the KG ontology) between
+- *Column Predicate Annotation (**CPA**)*: schema-level annotation determined to find binary relations (proerties of the KG ontology) between
 pair of columns of the table;
 
 Those annotations may be generated separately from different interpretation tasks, while other STI approaches use the information of one annotation

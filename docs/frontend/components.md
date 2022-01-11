@@ -11,10 +11,8 @@ be executed through the simple interaction with visual components displayed
 to the users.
 
 React builds user interfaces with the composition of multiple components,
-they are essentialy the building blocks of any React application. A compo-
-nent is a class or a function that takes input properties, if necessary, and
-returns a React element that describes how a section of the UI should ap-
-pear. Think about a simple button element. A Button component can be
+they are essentialy the building blocks of any React application. A component is a class or a function that takes input properties, if necessary, and
+returns a React element that describes how a section of the UI should appear. Think about a simple button element. A Button component can be
 built as a function which takes as input the label of the button and a click
 handler, and the result is an HTML button element with attached an event
 handler for the click event.
