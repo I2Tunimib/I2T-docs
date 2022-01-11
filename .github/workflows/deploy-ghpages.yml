@@ -10,10 +10,9 @@ jobs:
     steps:
       - name: Clone repo
         uses: actions/checkout@v2
-        with:
-          path: /repo
       
       - name: deploy
         run: |
+          cd I2T-docs
           yarn install
           yarn deploy
