@@ -1,0 +1,19 @@
+name: Workflow to deploy docs to github pages
+on: 
+  push:
+    branches:
+      - main
+jobs:
+  Deploy-App:
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v2
+        with:
+          path: /repo
+      
+      - name: deploy
+        run: |
+          yarn install
+          yarn deploy
