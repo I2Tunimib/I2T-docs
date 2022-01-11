@@ -147,5 +147,5 @@ export const CELL_COMPONENTS_TYPES: Record<CellComponent, CellComponentProps> = 
 The result obtained will be the following:
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/dashboard-component-res.png" />
+  <img src="/I2T-docs/img/dashboard-component-res.png" />
 </div>

@@ -15,7 +15,6 @@ const config = {
   favicon: 'img/favicon.ico',
   organizationName: 'I2Tunimib', // Usually your GitHub org/user name.
   projectName: 'I2T-docs', // Usually your repo name.
-  trailingSlash: false,
 
   presets: [
     [

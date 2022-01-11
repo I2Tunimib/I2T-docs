@@ -32,7 +32,7 @@ further services additions do not need to explicitly tell the system how to
 compute those statistics.
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/query-service.png" />
+  <img src="/I2T-docs/img/query-service.png" />
 </div>
 
 :::info

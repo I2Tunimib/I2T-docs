@@ -53,7 +53,7 @@ their dependencies and return values. Before recomputing a result, the
 cache is first checked returning the cached value if present.
 
 <div style={{textAlign: 'center'}}>
-  <img style={{width: '600px'}} src="/img/dataflow-redux.png" />
+  <img style={{width: '600px'}} src="/I2T-docs/img/dataflow-redux.png" />
 </div>
 
 ## Slice structure

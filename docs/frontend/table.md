@@ -9,7 +9,7 @@ it. Before going into the details of each feature, the anatomy of the UI is
 presented to the reader.
 
 <div style={{textAlign: 'center'}}>
-  <img style={{width: '600px'}} src="/img/tableviewer.png" />
+  <img style={{width: '600px'}} src="/I2T-docs/img/tableviewer.png" />
 </div>
 
 In the above figure the table viewer is shown with each major part highlighted

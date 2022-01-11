@@ -8,7 +8,7 @@ API, which provides endpoints for handling tables changes and query external
 services. The API structure is built following a three layers architecture:
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/layers-backend.png" />
+  <img src="/I2T-docs/img/layers-backend.png" />
 </div>
 
 - *Route*: a route defines an API endpoint and it’s the highest layer in

@@ -20,7 +20,7 @@ run logic like AJAX requests and dispatch results to a reducer, updating the
 store.
 
 <div style={{textAlign: 'center'}}>
-  <img style={{width: '600px'}} src="/img/thunk-flow.png" />
+  <img style={{width: '600px'}} src="/I2T-docs/img/thunk-flow.png" />
 </div>
 
 As a framework, SemTUI builds on top of thunks to support future thunk

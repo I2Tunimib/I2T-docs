@@ -83,5 +83,5 @@ export const CELL_COMPONENTS_TYPES = {
 The result obtained will be the following:
 
 <div style={{textAlign: 'center'}}>
-  <img src="/img/meta-component-res.png" />
+  <img src="/I2T-docs/img/meta-component-res.png" />
 </div>

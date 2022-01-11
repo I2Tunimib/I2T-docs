@@ -41,7 +41,7 @@ node is a component and the depth defines the hierarchy between all of the
 components that build the list.
 
 <div style={{textAlign: 'center'}}>
-  <img style={{width: '600px'}} src="/img/component-tree.png" />
+  <img style={{width: '600px'}} src="/I2T-docs/img/component-tree.png" />
 </div>
 
 It’s also important to understand that React only rerenders components
