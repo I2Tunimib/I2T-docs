@@ -13,6 +13,4 @@ jobs:
       
       - name: deploy
         run: |
-          cd I2T-docs
-          yarn install
-          yarn deploy
+          ls
