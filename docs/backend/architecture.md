@@ -12,6 +12,10 @@ the SemTUI backend functionalities.
 
 The backend server has two main roles to fulfill: **External services aggregator** and **Datasets and tables handler**.
 
+## Technology stack
+- **NodeJS**: the core technology to build the backend infrastructure. More details are available [here](https://nodejs.org/it/).
+- **ExpressJS**: it's a NodeJS framework primarly used to build APIs. More details [here](https://expressjs.com/).
+
 ## Structure
 
 In the following snippet is shown the structure of the backend server:
