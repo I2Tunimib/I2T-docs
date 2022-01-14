@@ -41,7 +41,7 @@ Two different pipeline exists for reconciliators and extenders services. They ca
 :::
 
 ## Add a new service
-Services are situated in the `services` folder at the root of the application. Each service is constitued by three components:
+Services are situated in the `services` folder at the root of the application. They are grouped by their core functionality. At the moment there are services of types `reconciliator` and `extender`. Each service is constitued by three components:
 
 ```jsx title="Service structure"
 📦serviceId
@@ -58,7 +58,7 @@ The `index.js` file contains characteristics of the service you want to add:
 export default {
   // private properties are kept on the server
   private: {
-    // specifies the endpoint to the external service in the environment file
+    // specifies the endpoint to the external service in the environment file (.env)
     endpoint: process.env.ASIA_RECONCILIATION
   },
   // public propertiest are sent to the client
@@ -128,6 +128,42 @@ export default async (req) => {
 }
 ```
 
+A **reconciliation** request has the following format:
+
+```json
+{
+  "serviceId":"asiaGeonames",
+  "items":[
+    {"id":"r0$StrCity","label":"Kirchheim unter Teck"},
+    {"id":"r1$StrCity","label":"Herrenberg"},
+    {"id":"r2$StrCity","label":"Baden-Baden"},
+    {"id":"r3$StrCity","label":"Aalen"},
+    ...
+  ]
+}
+```
+
+An **extension** request has the following format:
+
+```json
+{
+  "serviceId":"asiaGeonames",
+  "items":{
+    // column
+    "Match Location":{
+      "r0":"geo:6557942",
+      "r1":"geo:6557935",
+      "r2":"geo:6555605",
+      "r3":"geo:6558032",
+      "r4":"geo:6558054"
+    },
+  },
+  // additional properties for the specific extender service
+  "property":["parentADM1"],
+  ...
+}
+```
+
 ### responseTransformer.js
 The `responseTransformer.js` file contains a transformation function which transform the response of the external service to a standard format so that the frontend application always receives the same data to operate on:
 
@@ -157,4 +193,44 @@ export default async (req, res) => {
   return response;
 }
 ```
+
+A **reconciliation** response has the following format:
+
+```json
+[
+  {
+    "id": "r1$StrCity",
+    "metadata":[
+      {
+        "id": "6555605",
+        "name": {
+          "value": "Baden-Baden",
+          "uri": "http://www.geonames.org/6555605"
+        },
+        "type": [
+          { "id": "A.ADM4", "name": "A.ADM4"}
+        ],
+        "score": 138.1361083984375,
+        "match": false
+      },
+      ...
+    ]
+  },
+  {
+    "id": "r2$StrCity",
+    "metadata":[...]
+  },
+  {
+    "id": "r3$StrCity",
+    "metadata":[...]
+  },
+  ...
+]
+```
+
+:::info
+
+You can prevent a configured service from being loaded into the runtime of the server using the `exclude` field in the initial configuration, as described [here](./config.md#configuration).
+
+:::
 

@@ -21,7 +21,9 @@ git clone https://github.com/I2Tunimib/I2T-backend.git
 cd I2T-backend && npm install
 ```
 
-2. Launch the application:
+3. Create a `.env` file in the root of the application and fill it with the content you can find [here](https://drive.google.com/file/d/12-823zqgBJW0QfN7GdAwsSXUaWK6m5rp/view?usp=sharing) (you can access the content with a unimib account).
+
+4. Launch the application:
 
 ```bash
 npm run start-dev
@@ -42,7 +44,9 @@ git clone https://github.com/I2Tunimib/I2T-frontend.git
 cd I2T-frontend && npm install
 ```
 
-2. Launch the application:
+3. Create a `.env` file in the root of the application and fill it with the content you can find [here](https://drive.google.com/file/d/1Bb1Xqmrw1Vo8I2j9-IfQpZZNa5QMU6_-/view?usp=sharing) (you can access the content with a unimib account).
+
+4. Launch the application:
 
 ```bash
 npm run start
