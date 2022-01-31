@@ -51,7 +51,13 @@ Services are situated in the `services` folder at the root of the application. T
 ```
 
 ### index.js
-The `index.js` file contains characteristics of the service you want to add:
+The `index.js` file contains characteristics of the service you want to add.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+<TabItem value="structure" label="Reconciliator - File structure">
 
 ```js
 // be sure to export the object as default
@@ -59,20 +65,49 @@ export default {
   // private properties are kept on the server
   private: {
     // specifies the endpoint to the external service in the environment file (.env)
-    endpoint: process.env.ASIA_RECONCILIATION
+    endpoint: process.env.ENVIRONMENT_VARIABLE
   },
-  // public propertiest are sent to the client
+  // public properties are sent to the client
   public: {
     // name of the service (shown in the UI)
-    name: 'ASIA (geonames)',
+    name: '',
+    // a description to give the user informations about this service (shown in the UI). 
+    // It supports HTML markup syntax. 
+    description: '',
     // relative URL which will be queried from the client. e.g.: /reconciliators/asia/geonames
-    relativeUrl: '/asia/geonames',
-    // a description to give the user informations about this service
-    description: 'Reconcile entities to Geonames using ASIA.',
+    relativeUrl: '',
+    // (e.g: geo, wd, dbp)
+    prefix: '',
     // base URI of the resources returned from this service
+    uri: '',
+    // specify how to visualize metadata information
+    metaToView: {}
+  }
+}
+```
+
+:::info
+
+`Type` corresponds to a UI componenent. Check [here](/frontend/metadata-components.md) how to add new UI component. If `type` is omitted the field is treated as text. The data fields included
+in the object will be displayed in the UI, meanwhile all others fields are left out of the visualization.
+
+:::
+
+</TabItem>
+
+<TabItem value="exampleRecon" label="Reconciliator - Example">
+
+```js
+export default {
+  private: {
+    endpoint: process.env.ASIA_RECONCILIATION
+  },
+  public: {
+    name: 'ASIA (geonames)',
+    prefix: 'geo',
+    relativeUrl: '/asia/geonames',
+    description: 'Reconcile entities to Geonames using ASIA.',
     uri: 'http://www.geonames.org/',
-    // how to visualize metadata information 
-    // (similarly to how information for a dataset/table are mapped to client side)
     metaToView: {
       id: {
         label: 'ID',
@@ -104,8 +139,124 @@ in the object will be displayed in the UI, meanwhile all others fields are left 
 
 :::
 
+</TabItem>
+
+</Tabs>
+
+<Tabs>
+
+<TabItem value="structureExtender" label="Extender - File structure">
+
+```js
+// be sure to export the object as default
+export default {
+  // private properties are kept on the server
+  private: {
+    // endpoint to the external service specified in the environment file (.env)
+    endpoint: process.env.ENVIRONMENT_VARIABLE
+  },
+  // public properties are sent to the client
+  public: {
+    // name of the service (shown in the UI)
+    name: '',
+    // a description to give the user informations about this service (shown in the UI). 
+    // It supports HTML markup syntax. 
+    description: '',
+    // relative URL which will be queried from the client. e.g.: /reconciliators/asia/geonames
+    relativeUrl: '',
+    // specify how to render the form to query the extension service
+    // each object of the array identifies a form field. Can be empty.
+    formParams: []
+  }
+}
+```
+
+</TabItem>
+
+<TabItem value="exampleExt" label="Extender - Example">
+
+```js
+export default {
+  private: {
+    endpoint: process.env.ASIA_EXTENSION
+  },
+  public: {
+    name: 'ASIA (geonames)',
+    relativeUrl: '/asia/geonames',
+    description: 'ASIA extension service based on geonames.',
+    formParams: [
+      {
+        // unique id to identify the form field
+        id: 'property',
+        // description of the form field
+        description: 'Select on or more <b>Property</b> values:',
+        // label of the form field
+        label: 'Property',
+        // input type. Available components are 'text', 'checkbox', 'selectColumns'
+        inputType: 'checkbox',
+        // rules applied to this form field (only 'required' is currently available)
+        rules: ['required'],
+        options: [
+          {
+            id: 'adm1',
+            label: 'First-order administrative division (Regions or States)',
+            value: 'parentADM1'
+          },
+          {
+            id: 'adm2',
+            label: 'Second-order administrative division (Provinces)',
+            value: 'parentADM2'
+          },
+          {
+            id: 'adm3',
+            label: 'Third-order administrative division (Communes)',
+            value: 'parentADM3'
+          },
+          {
+            id: 'adm4',
+            label: 'Fourth-order administrative division',
+            value: 'parentADM4'
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+</TabItem>
+
+</Tabs>
+
 ### requestTransformer.js
 The `requestTransformer.js` file contains a transformation function which transform the client request to the format necessary to query the external service. The function returns the response from the external service:
+
+<Tabs>
+<TabItem value="structure" label="File structure">
+
+```js
+import config from './index';
+// library to perform http requests
+import axios from 'axios';
+
+const { endpoint } = config.private;
+
+// be sure to export the function as default
+// the function receivs as input the request object from the client
+export default async (req) => {
+  const { items } = req;
+
+  // transformation function applied to the request items to query the service
+  const formBody = ...
+
+  const response = await axios.post(`${endpoint}/endpoint/service`, formBody)
+  return response.data;
+}
+```
+
+</TabItem>
+
+<TabItem value="example" label="Example">
 
 ```js
 import config from './index';
@@ -113,8 +264,6 @@ import axios from 'axios';
 
 const { endpoint } = config.private;
 
-// be sure to export the function as default
-// the function receivs as input the request object from the client
 export default async (req) => {
   const { items } = req;
   const queries = items.reduce((acc, { id, label }) => ({
@@ -128,7 +277,13 @@ export default async (req) => {
 }
 ```
 
-A **reconciliation** request has the following format:
+</TabItem>
+</Tabs>
+
+**Reconciliation** and **extension** requests have the following formats:
+
+<Tabs>
+<TabItem value="recReq" label="Reconciliation request">
 
 ```json
 {
@@ -143,7 +298,9 @@ A **reconciliation** request has the following format:
 }
 ```
 
-An **extension** request has the following format:
+</TabItem>
+
+<TabItem value="extReq" label="Extension request">
 
 ```json
 {
@@ -163,18 +320,39 @@ An **extension** request has the following format:
   ...
 }
 ```
+</TabItem>
+</Tabs>
 
 ### responseTransformer.js
 The `responseTransformer.js` file contains a transformation function which transform the response of the external service to a standard format so that the frontend application always receives the same data to operate on:
+
+<Tabs>
+<TabItem value="structure" label="Reconciliator - File structure">
+
+```js
+import config from './index';
+// resource uri from the index configuration
+const { uri } = config.public;
+
+// be sure to export the function as default
+// the function receives as input the request object from the client 
+// (res) and the response from the external service (res)
+export default async (req, res) => {
+  // transformation function applied to the response (res) of the requestTransformer
+  const response = ...
+  return response;
+}
+```
+
+</TabItem>
+
+<TabItem value="recExample" label="Reconciliator - Example">
 
 ```js
 import config from './index';
 
 const { uri } = config.public;
 
-// be sure to export the function as default
-// the function receives as input the request object from the client 
-// (res) and the response from the external service (res)
 export default async (req, res) => {
   const response = Object.keys(res).map((id) => {
     const metadata = res[id].result.map((metaItem) => ({
@@ -194,7 +372,100 @@ export default async (req, res) => {
 }
 ```
 
-A **reconciliation** response has the following format:
+</TabItem>
+
+</Tabs>
+<Tabs>
+
+<TabItem value="extStructure" label="Extender - File structure">
+
+```js
+// be sure to export the function as default
+// the function receives as input the request object from the client 
+// (res) and the response from the external service (res)
+export default async (req, res) => {
+  const { items } = req;
+  // input columns ids from the request items
+  const inputColumnsLabels = Object.keys(items);
+
+  let response = {
+    // columns entities to be added
+    columns: {},
+    // rows of the columns to be added 
+    // (e.g.: if only a column is added, each row would contain only once cell)
+    rows: {},
+    // a mapping between the new column obtained from extension of the input column (i.e.: { newColumnId: inputColumnId })
+    // meta is used to place the new columns in the correct order in the UI.
+    meta: {}
+  }
+
+  // transformation function to obtain the response
+  ...
+
+  return response;
+}
+```
+
+</TabItem>
+
+<TabItem value="extExample" label="Extender - Example">
+
+```js
+// contains mappings between prefixes and URIs (e.g.: dbp: { uri: 'http://www.geonames.org/' })
+import { KG_INFO } from "../../../utils/constants";
+
+export default async (req, res) => {
+  const { items } = req;
+  const inputColumnsLabels = Object.keys(items);
+
+  let response = {
+    columns: {},
+    rows: {},
+    meta: {}
+  }
+
+  res.forEach((serviceResponse, colIndex) => {
+    serviceResponse.forEach(({ rowId, data }) => {
+      data.forEach(({ weatherParameters, offset }) => {
+        if (weatherParameters) {
+          weatherParameters.forEach(({ id, ...rest }) => {
+            const colId = `${inputColumnsLabels[colIndex]}_offset${offset}_${id}`;
+            response.columns[colId] = {
+              id: colId,
+              label: colId,
+              metadata: []
+            }
+            response.meta[colId] = inputColumnsLabels[colIndex];
+
+            const cellId = `${rowId}$${colId}`;
+            response.rows[rowId] = {
+              ...response.rows[rowId],
+              id: rowId,
+              cells: {
+                ...(response.rows[rowId] && { ...response.rows[rowId].cells }),
+                [colId]: {
+                  id: cellId,
+                  label: id === 'sund' ? rest.cumulValue : rest.avgValue,
+                  metadata: []
+                }
+              }
+            }
+          });
+        }
+      });
+    });
+  });
+  return response;
+}
+```
+
+</TabItem>
+</Tabs>
+
+**Reconciliation** and **extension** responses have the following formats:
+
+<Tabs>
+<TabItem value="recReq" label="Reconciliation response">
 
 ```json
 [
@@ -227,6 +498,51 @@ A **reconciliation** response has the following format:
   ...
 ]
 ```
+
+</TabItem>
+
+<TabItem value="extReq" label="Extension response">
+
+```json
+{
+  "columns": {
+    "StrCity_parentADM1_offset0_ws": {
+      "id": "StrCity_parentADM1_offset0_ws",
+      "label": "StrCity_parentADM1_offset0_ws",
+      "metadata": []
+    }
+  },
+  "rows": {
+    "r0": {
+      "id": "r0",
+      "cells": {
+        "StrCity_parentADM1_offset0_ws": {
+          "id": "r0$StrCity_parentADM1_offset0_ws",
+          "label": 8.234119802185715,
+          "metadata": []
+        }
+      }
+    },
+    "r2": {
+      "id": "r2",
+      "cells": {
+        "StrCity_parentADM1_offset0_ws": {
+          "id": "r2$StrCity_parentADM1_offset0_ws",
+          "label": 7.960282242257143,
+          "metadata": []
+        }
+      }
+    },
+    ...
+  }
+  "meta": {
+    "StrCity_parentADM1_offset0_ws": "StrCity_parentADM1"
+  }
+}
+```
+
+</TabItem>
+</Tabs>
 
 :::info
 
