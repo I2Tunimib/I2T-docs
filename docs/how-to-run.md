@@ -27,13 +27,13 @@ cd I2T-backend && npm install
 and create a tunnel to the ASIA reconciliation service. You can view [here](https://drive.google.com/file/d/1_UPUWeXVldL_s5TTyscgDA-UXKoBNEzk/view?usp=sharing) information about the remote machine (you can access the content with a unimib account):
 
 ```bash
-ssh -p [REMOTE_MACHINE_IP] -N -L 8089:127.0.0.1:8089 asia@[REMOTE_MACHINE_IP]
+ssh -p [PORT_SSH] -N -L 8089:127.0.0.1:8089 asia@[REMOTE_MACHINE_IP]
 ```
 
 Do the same to create a communication with the extension service:
 
 ```bash
-ssh -p 106 -N -L 8088:127.0.0.1:8088 asia@[REMOTE_MACHINE_IP]
+ssh -p [PORT_SSH] -N -L 8088:127.0.0.1:8088 asia@[REMOTE_MACHINE_IP]
 ```
 
 5. Launch the application:
