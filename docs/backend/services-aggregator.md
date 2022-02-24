@@ -65,7 +65,11 @@ export default {
   // private properties are kept on the server
   private: {
     // specifies the endpoint to the external service in the environment file (.env)
-    endpoint: process.env.ENVIRONMENT_VARIABLE
+    endpoint: process.env.ENVIRONMENT_VARIABLE,
+    // if true the request is processed to return unique values (labels/metadataIds)
+    // the req object contains two objects 'original' with 
+    // the original request and 'processed' with the processed request. Defaults to false
+    processRequest: false
   },
   // public properties are sent to the client
   public: {
@@ -100,7 +104,11 @@ in the object will be displayed in the UI, meanwhile all others fields are left 
 ```js
 export default {
   private: {
-    endpoint: process.env.ASIA_RECONCILIATION
+    endpoint: process.env.ASIA_RECONCILIATION,
+    // if true the request is processed to return unique values (labels/metadataIds)
+    // the req object contains two objects 'original' with 
+    // the original request and 'processed' with the processed request
+    processRequest: false
   },
   public: {
     name: 'ASIA (geonames)',
@@ -229,7 +237,10 @@ export default {
 </Tabs>
 
 ### requestTransformer.js
-The `requestTransformer.js` file contains a transformation function which transform the client request to the format necessary to query the external service. The function returns the response from the external service:
+The `requestTransformer.js` file contains a transformation function which transform the client request to the format necessary to query the external service. The function returns the response from the external service. Each **requestTransformer** receives **req** which contains:
+
+- `original`: the original request to the server
+- `processed` (*optional*): the processed request to the server if the specified configuration for the service contains `processRequest` set to **true**.
 
 <Tabs>
 <TabItem value="structure" label="File structure">
@@ -242,14 +253,13 @@ import axios from 'axios';
 const { endpoint } = config.private;
 
 // be sure to export the function as default
-// the function receivs as input the request object from the client
 export default async (req) => {
-  const { items } = req;
+  const { items } = req.processed;
 
   // transformation function applied to the request items to query the service
   const formBody = ...
 
-  const response = await axios.post(`${endpoint}/endpoint/service`, formBody)
+  const response = await axios.post(`${endpoint}/geonames`, formBody)
   return response.data;
 }
 ```
@@ -265,14 +275,16 @@ import axios from 'axios';
 const { endpoint } = config.private;
 
 export default async (req) => {
-  const { items } = req;
-  const queries = items.reduce((acc, { id, label }) => ({
+  const { items } = req.processed;
+
+  const queries = Object.keys(items).reduce((acc, label) => ({
     ...acc,
-    [id]: { query: encodeURIComponent(label || '') }
-  }), {})
+    [label]: { query: encodeURIComponent(label || '') }
+  }), {});
 
   const formBody = 'queries=' + JSON.stringify(queries);
   const response = await axios.post(`${endpoint}/geonames`, formBody)
+
   return response.data;
 }
 ```
@@ -283,7 +295,7 @@ export default async (req) => {
 **Reconciliation** and **extension** requests have the following formats:
 
 <Tabs>
-<TabItem value="recReq" label="Reconciliation request">
+<TabItem value="recReqOrig" label="Reconciliation request (original)">
 
 ```json
 {
@@ -300,7 +312,26 @@ export default async (req) => {
 
 </TabItem>
 
-<TabItem value="extReq" label="Extension request">
+<TabItem value="recReqProc" label="Reconciliation request (processed)">
+
+```json
+{
+  "items": {
+    "Kirchheim unter Teck": ["r0$StrCity"],
+    "Herrenberg": ["r1$StrCity"],
+    "Baden-Baden": ["r2$StrCity"],
+    // 3 cells have the same label "Aalen"
+    "Aalen": ["r3$StrCity", "r4$StrCity", "r5$StrCity"],
+    ...
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+
+<Tabs>
+<TabItem value="extReqOrig" label="Extension request (original)">
 
 ```json
 {
@@ -320,6 +351,32 @@ export default async (req) => {
   ...
 }
 ```
+
+</TabItem>
+
+<TabItem value="extReqProc" label="Extension request (processed)">
+
+```json
+{
+  "items":{
+    // column
+    "Match Location":{
+      "geo:6557942": ["r0", "r5", "r7"],
+      "geo:6557935": ["r1"],
+      "geo:6555605": ["r2"],
+      "geo:6558032": ["r3"],
+      "geo:6558054": ["r4"],
+      ...
+    },
+  },
+  "props": {
+    // additional properties for the specific extender service
+    "property":["parentADM1"],
+    ...
+  }
+}
+```
+
 </TabItem>
 </Tabs>
 
@@ -330,14 +387,12 @@ The `responseTransformer.js` file contains a transformation function which trans
 <TabItem value="structure" label="Reconciliator - File structure">
 
 ```js
-import config from './index';
-// resource uri from the index configuration
-const { uri } = config.public;
-
 // be sure to export the function as default
-// the function receives as input the request object from the client 
-// (res) and the response from the external service (res)
+// the function receives as input the request object of the requestTransformer
+// (req) and the response from the external service (res)
 export default async (req, res) => {
+  const { items } = req.processed;
+
   // transformation function applied to the response (res) of the requestTransformer
   const response = ...
   return response;
@@ -349,25 +404,21 @@ export default async (req, res) => {
 <TabItem value="recExample" label="Reconciliator - Example">
 
 ```js
-import config from './index';
-
-const { uri } = config.public;
-
 export default async (req, res) => {
-  const response = Object.keys(res).map((id) => {
-    const metadata = res[id].result.map((metaItem) => ({
-      ...metaItem,
-      name: {
-        value: metaItem.name,
-        uri: `${uri}${metaItem.id}`
-      }
+  const { items } = req.processed;
+
+  const response = Object.keys(res).flatMap((label) => {
+    const metadata = res[label].result.map(({ id, ...rest }) => ({
+      id: `geo:${id}`,
+      ...rest
     }))
 
-    return {
-      id,
+    return items[label].map((cellId) => ({
+      id: cellId,
       metadata
-    }
+    }))
   });
+
   return response;
 }
 ```
@@ -381,29 +432,27 @@ export default async (req, res) => {
 
 ```js
 // be sure to export the function as default
-// the function receives as input the request object from the client 
-// (res) and the response from the external service (res)
+// the function receives as input the request object from the requestTransformer 
+// (req) and the response from the external service (res)
 export default async (req, res) => {
-  const { items } = req;
+  const { items } = req.processed;
   // input columns ids from the request items
-  const inputColumnsLabels = Object.keys(items);
+  const inputColumns = Object.keys(items);
 
   let response = {
     // columns entities to be added
     columns: {},
-    // rows of the columns to be added 
-    // (e.g.: if only a column is added, each row would contain only once cell)
-    rows: {},
-    // a mapping between the new column obtained from extension of the input column (i.e.: { newColumnId: inputColumnId })
+    // mapping between the new column obtained from extension of the input column (i.e.: { newColumnId: inputColumnId })
     // meta is used to place the new columns in the correct order in the UI.
     meta: {}
   }
-
+  
   // transformation function to obtain the response
   ...
 
   return response;
 }
+
 ```
 
 </TabItem>
@@ -411,50 +460,68 @@ export default async (req, res) => {
 <TabItem value="extExample" label="Extender - Example">
 
 ```js
-// contains mappings between prefixes and URIs (e.g.: dbp: { uri: 'http://www.geonames.org/' })
-import { KG_INFO } from "../../../utils/constants";
+const getMetadata = (metaRaw) => {
+  return metaRaw.map(({ id, name }) => ({
+    id: `geo:${id}`,
+    name,
+    score: 100,
+    match: true
+  }))
+}
 
 export default async (req, res) => {
-  const { items } = req;
-  const inputColumnsLabels = Object.keys(items);
+  const { items } = req.processed;
+  const inputColumns = Object.keys(items);
 
   let response = {
     columns: {},
-    rows: {},
     meta: {}
   }
-
+  
+  // each input column generated a response from the external service
   res.forEach((serviceResponse, colIndex) => {
-    serviceResponse.forEach(({ rowId, data }) => {
-      data.forEach(({ weatherParameters, offset }) => {
-        if (weatherParameters) {
-          weatherParameters.forEach(({ id, ...rest }) => {
-            const colId = `${inputColumnsLabels[colIndex]}_offset${offset}_${id}`;
-            response.columns[colId] = {
-              id: colId,
-              label: colId,
-              metadata: []
-            }
-            response.meta[colId] = inputColumnsLabels[colIndex];
+    const { meta, rows } = serviceResponse.res;
 
-            const cellId = `${rowId}$${colId}`;
-            response.rows[rowId] = {
-              ...response.rows[rowId],
-              id: rowId,
-              cells: {
-                ...(response.rows[rowId] && { ...response.rows[rowId].cells }),
-                [colId]: {
-                  id: cellId,
-                  label: id === 'sund' ? rest.cumulValue : rest.avgValue,
-                  metadata: []
-                }
-              }
-            }
-          });
+    meta.forEach((property) => {
+      const { id: propId } = property;
+      const colId = `${inputColumns[colIndex]}_${propId}`;
+      // create columns
+      response.columns[colId] = {
+        label: colId,
+        metadata: [],
+        cells: {}
+      }
+      // add columns mapping
+      response.meta = {
+        ...response.meta,
+        [colId]: inputColumns[colIndex]
+      }
+
+      // add cells to each column
+      Object.keys(rows).forEach((metadataId) => {
+        // get rows for each metaId
+        const requestRowsIds = items[inputColumns[colIndex]][`geo:${metadataId}`];
+
+        // build cells
+        const cells = requestRowsIds.reduce((acc, rowId) => {
+          const cellMetadata = getMetadata(rows[metadataId][property.id]);
+
+          acc[rowId] = cellMetadata && cellMetadata.length > 0 ? {
+            label: cellMetadata[0].name,
+            metadata: cellMetadata
+          } : null;
+          return acc;
+        }, {});
+
+        // add cells to column
+        response.columns[colId].cells = {
+          ...response.columns[colId].cells,
+          ...cells
         }
       });
-    });
+    }); 
   });
+
   return response;
 }
 ```
@@ -471,13 +538,11 @@ export default async (req, res) => {
 [
   {
     "id": "r1$StrCity",
+    // follows the w3c standard for the representation of the annotations
     "metadata":[
       {
-        "id": "6555605",
-        "name": {
-          "value": "Baden-Baden",
-          "uri": "http://www.geonames.org/6555605"
-        },
+        "id": "geo:6555605",
+        "name": "Baden-Baden",
         "type": [
           { "id": "A.ADM4", "name": "A.ADM4"}
         ],
@@ -506,37 +571,38 @@ export default async (req, res) => {
 ```json
 {
   "columns": {
-    "StrCity_parentADM1_offset0_ws": {
-      "id": "StrCity_parentADM1_offset0_ws",
-      "label": "StrCity_parentADM1_offset0_ws",
-      "metadata": []
+    "StrCity_parentADM1": {
+      "label": "StrCity_parentADM1",
+      "metadata": [],
+      "cells": {
+        "r1": {
+          "label": "Lucerne",
+          "metadata": [
+            {
+              "id": "geo:2659810",
+              "name": "Lucerne",
+              "score": 100,
+              "match": true
+            }
+          ]
+        },
+        "r2": {
+          "label": "Victoria",
+          "metadata": [
+            {
+              "id": "geo:2145234",
+              "name": "Victoria",
+              "score": 100,
+              "match": true
+            }
+          ]
+        },
+        ...
+      }
     }
   },
-  "rows": {
-    "r0": {
-      "id": "r0",
-      "cells": {
-        "StrCity_parentADM1_offset0_ws": {
-          "id": "r0$StrCity_parentADM1_offset0_ws",
-          "label": 8.234119802185715,
-          "metadata": []
-        }
-      }
-    },
-    "r2": {
-      "id": "r2",
-      "cells": {
-        "StrCity_parentADM1_offset0_ws": {
-          "id": "r2$StrCity_parentADM1_offset0_ws",
-          "label": 7.960282242257143,
-          "metadata": []
-        }
-      }
-    },
-    ...
-  }
   "meta": {
-    "StrCity_parentADM1_offset0_ws": "StrCity_parentADM1"
+    "StrCity_parentADM1": "StrCity"
   }
 }
 ```
