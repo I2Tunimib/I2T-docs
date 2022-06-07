@@ -8,3 +8,5 @@ sidebar_position: 7
 - The upload form is not reset when exited.
 - In the expanded view of a column of the table, the tag besides an annotation isn't shown when the list of the candidate entities for a cell is expanded.
 - The visualization of properties sometimes breaks.
+
+# Improvements
