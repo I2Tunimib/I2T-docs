@@ -3,6 +3,7 @@ sidebar_position: 5
 ---
 
 # External services aggregator
+
 Many services might be available to perform operations required for the Semantic Enrichment of a table. For example, multiple services can provide their own logic to perform a STI approach and generate annotations for a given table. Some other services might
 operate only on some of the annotation levels, i.e.: reconciliators that provide instance-level annotations for the table cells, or reconciliators that work
 on the schema-level annotation of the table, mapping columns to ontology
@@ -13,10 +14,36 @@ The service aggregator layer is built in such a way that new external services c
 
 In the current version of SemTUI there are two types of services:
 
-- *reconciliators*: perform the reconciliation of labels against a KG, and in general providing annotation for CEA,
-CTA and CPA (with partial annotation, or full table annotation).
-- *extenders*: allow the users to extend one or more column with information from other
-datasets enriching the original data table.
+- _reconciliators_: perform the reconciliation of labels against a KG, and in general providing annotation for CEA,
+  CTA and CPA (with partial annotation, or full table annotation).
+- _extenders_: allow the users to extend one or more column with information from other
+  datasets enriching the original data table.
+
+## Server startup
+
+As soon as the server spins up, all described services are parsed and validated against a schema. An unsuccessful parsing of a service will result in a validation error.
+Invalid services won't be available at runtime.
+
+The user will be prompted with the following information on startup:
+
+```
+Reconciliators
+
+✖ service1
+Errors:
+1. detailed validation error
+
+✔ service2
+✔ service3
+✔ service4
+
+Extenders
+
+✔ service1
+✔ service2
+✔ service3
+
+```
 
 ## Query an external service
 
@@ -41,6 +68,7 @@ Two different pipeline exists for reconciliators and extenders services. They ca
 :::
 
 ## Add a new service
+
 Services are situated in the `services` folder at the root of the application. They are grouped by their core functionality. At the moment there are services of types `reconciliator` and `extender`. Each service is constitued by three components:
 
 ```jsx title="Service structure"
@@ -51,10 +79,74 @@ Services are situated in the `services` folder at the root of the application. T
 ```
 
 ### index.js
+
 The `index.js` file contains characteristics of the service you want to add.
+
+#### Service Components
+
+To make the creation of a service easier, some objects have been defined to describe the available components:
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+<Tabs>
+<TabItem value="formComponents" label="Form components">
+
+```js
+export const FormComponents = {
+  /**
+   * builds a checkbox component. A property 'options' must be specified with an array of option objects.
+   */
+  checkbox: "checkbox",
+  /**
+   * builds an input text component
+   */
+  text: "text",
+  /**
+   * builds a select component. A property 'options' must be specified with an array of option objects.
+   */
+  select: "select",
+  /**
+   * builds a select component where each option is a column of the table
+   */
+  selectColumns: "selectColumns",
+};
+```
+
+</TabItem>
+<TabItem value="formFieldRules" label="Form field rules">
+
+```js
+export const FormFieldRules = {
+  /**
+   * the field is required. If a required rule isn't specified, the field is treated as optional
+   */
+  required: "required",
+};
+```
+
+</TabItem>
+<TabItem value="metaToViewComponents" label="Meta to view components">
+
+```js
+export const MetaToViewComponents = {
+  /**
+   * builds a cell containing a link
+   */
+  link: "link",
+  /**
+   * builds a cell which can be used to create a subrow with the metadata content
+   */
+  sublist: "subList",
+  /**
+   * builds a cell containing a tag
+   */
+  tag: "tag",
+};
+```
+
+</TabItem>
+</Tabs>
 
 <Tabs>
 <TabItem value="structure" label="Reconciliator - File structure">
@@ -67,27 +159,30 @@ export default {
     // specifies the endpoint to the external service in the environment file (.env)
     endpoint: process.env.ENVIRONMENT_VARIABLE,
     // if true the request is processed to return unique values (labels/metadataIds)
-    // the req object contains two objects 'original' with 
+    // the req object contains two objects 'original' with
     // the original request and 'processed' with the processed request. Defaults to false
-    processRequest: false
+    processRequest: false,
   },
   // public properties are sent to the client
   public: {
     // name of the service (shown in the UI)
-    name: '',
-    // a description to give the user informations about this service (shown in the UI). 
-    // It supports HTML markup syntax. 
-    description: '',
+    name: "",
+    // a description to give the user informations about this service (shown in the UI).
+    // It supports HTML markup syntax.
+    description: "",
     // relative URL which will be queried from the client. e.g.: /reconciliators/asia/geonames
-    relativeUrl: '',
+    relativeUrl: "",
     // (e.g: geo, wd, dbp)
-    prefix: '',
+    prefix: "",
     // base URI of the resources returned from this service
-    uri: '',
+    uri: "",
     // specify how to visualize metadata information
-    metaToView: {}
-  }
-}
+    metaToView: {},
+    // specify how to render the form to query the extension service
+    // each object of the array identifies a form field. Can be empty.
+    formParams: [],
+  },
+};
 ```
 
 :::info
@@ -102,42 +197,45 @@ in the object will be displayed in the UI, meanwhile all others fields are left 
 <TabItem value="exampleRecon" label="Reconciliator - Example">
 
 ```js
+import { MetaToViewComponents } from "../../../schemas/constants";
+
 export default {
   private: {
     endpoint: process.env.ASIA_RECONCILIATION,
     // if true the request is processed to return unique values (labels/metadataIds)
-    // the req object contains two objects 'original' with 
+    // the req object contains two objects 'original' with
     // the original request and 'processed' with the processed request
-    processRequest: false
+    processRequest: false,
   },
   public: {
-    name: 'ASIA (geonames)',
-    prefix: 'geo',
-    relativeUrl: '/asia/geonames',
-    description: 'Reconcile entities to Geonames using ASIA.',
-    uri: 'http://www.geonames.org/',
+    name: "ASIA (geonames)",
+    prefix: "geo",
+    relativeUrl: "/asia/geonames",
+    description:
+      "Reconcile entities to Geonames using ASIA. This service might prove useful when reconciling geospatial entities (places).",
+    uri: "http://www.geonames.org/",
     metaToView: {
       id: {
-        label: 'ID',
+        label: "ID",
       },
       name: {
-        label: 'Name',
-        type: 'link'
+        label: "Name",
+        type: MetaToViewComponents.link,
       },
       score: {
-        label: 'Score'
+        label: "Score",
       },
       type: {
-        label: 'Types',
-        type: 'subList'
+        label: "Types",
+        type: MetaToViewComponents.sublist,
       },
       match: {
-        label: 'Match',
-        type: 'tag'
-      }
-    }
-  }
-}
+        label: "Match",
+        type: MetaToViewComponents.tag,
+      },
+    },
+  },
+};
 ```
 
 :::info
@@ -161,22 +259,22 @@ export default {
   // private properties are kept on the server
   private: {
     // endpoint to the external service specified in the environment file (.env)
-    endpoint: process.env.ENVIRONMENT_VARIABLE
+    endpoint: process.env.ENVIRONMENT_VARIABLE,
   },
   // public properties are sent to the client
   public: {
     // name of the service (shown in the UI)
-    name: '',
-    // a description to give the user informations about this service (shown in the UI). 
-    // It supports HTML markup syntax. 
-    description: '',
+    name: "",
+    // a description to give the user informations about this service (shown in the UI).
+    // It supports HTML markup syntax.
+    description: "",
     // relative URL which will be queried from the client. e.g.: /reconciliators/asia/geonames
-    relativeUrl: '',
+    relativeUrl: "",
     // specify how to render the form to query the extension service
     // each object of the array identifies a form field. Can be empty.
-    formParams: []
-  }
-}
+    formParams: [],
+  },
+};
 ```
 
 </TabItem>
@@ -184,52 +282,50 @@ export default {
 <TabItem value="exampleExt" label="Extender - Example">
 
 ```js
+import { FormComponents, FormFieldRules } from "../../../schemas/constants";
+
 export default {
   private: {
-    endpoint: process.env.ASIA_EXTENSION
+    endpoint: process.env.ASIA_EXTENSION,
   },
   public: {
-    name: 'ASIA (geonames)',
-    relativeUrl: '/asia/geonames',
-    description: 'ASIA extension service based on geonames.',
+    nname: "ASIA (geonames)",
+    relativeUrl: "/asia/geonames",
+    description:
+      "ASIA extension service based on geonames allows to extend a column with data on locations of a certain administrative order. The input column has to be reconciliated against geonames entities.",
     formParams: [
       {
-        // unique id to identify the form field
-        id: 'property',
-        // description of the form field
-        description: 'Select on or more <b>Property</b> values:',
-        // label of the form field
-        label: 'Property',
-        // input type. Available components are 'text', 'checkbox', 'selectColumns'
-        inputType: 'checkbox',
-        // rules applied to this form field (only 'required' is currently available)
-        rules: ['required'],
+        id: "property",
+        description: "Select on or more <b>Property</b> values:",
+        label: "Property",
+        inputType: FormComponents.checkbox,
+        rules: [FormFieldRules.required],
         options: [
           {
-            id: 'adm1',
-            label: 'First-order administrative division (Regions or States)',
-            value: 'parentADM1'
+            id: "adm1",
+            label: "First-order administrative division (Regions or States)",
+            value: "parentADM1",
           },
           {
-            id: 'adm2',
-            label: 'Second-order administrative division (Provinces)',
-            value: 'parentADM2'
+            id: "adm2",
+            label: "Second-order administrative division (Provinces)",
+            value: "parentADM2",
           },
           {
-            id: 'adm3',
-            label: 'Third-order administrative division (Communes)',
-            value: 'parentADM3'
+            id: "adm3",
+            label: "Third-order administrative division (Communes)",
+            value: "parentADM3",
           },
           {
-            id: 'adm4',
-            label: 'Fourth-order administrative division',
-            value: 'parentADM4'
-          }
-        ]
-      }
-    ]
-  }
-}
+            id: "adm4",
+            label: "Fourth-order administrative division",
+            value: "parentADM4",
+          },
+        ],
+      },
+    ],
+  },
+};
 ```
 
 </TabItem>
@@ -237,10 +333,11 @@ export default {
 </Tabs>
 
 ### requestTransformer.js
+
 The `requestTransformer.js` file contains a transformation function which transform the client request to the format necessary to query the external service. The function returns the response from the external service. Each **requestTransformer** receives **req** which contains:
 
 - `original`: the original request to the server
-- `processed` (*optional*): the processed request to the server if the specified configuration for the service contains `processRequest` set to **true**.
+- `processed` (_optional_): the processed request to the server if the specified configuration for the service contains `processRequest` set to **true**.
 
 <Tabs>
 <TabItem value="structure" label="File structure">
@@ -269,24 +366,27 @@ export default async (req) => {
 <TabItem value="example" label="Example">
 
 ```js
-import config from './index';
-import axios from 'axios';
+import config from "./index";
+import axios from "axios";
 
 const { endpoint } = config.private;
 
 export default async (req) => {
   const { items } = req.processed;
 
-  const queries = Object.keys(items).reduce((acc, label) => ({
-    ...acc,
-    [label]: { query: encodeURIComponent(label || '') }
-  }), {});
+  const queries = Object.keys(items).reduce(
+    (acc, label) => ({
+      ...acc,
+      [label]: { query: encodeURIComponent(label || "") },
+    }),
+    {}
+  );
 
-  const formBody = 'queries=' + JSON.stringify(queries);
-  const response = await axios.post(`${endpoint}/geonames`, formBody)
+  const formBody = "queries=" + JSON.stringify(queries);
+  const response = await axios.post(`${endpoint}/geonames`, formBody);
 
   return response.data;
-}
+};
 ```
 
 </TabItem>
@@ -381,6 +481,7 @@ export default async (req) => {
 </Tabs>
 
 ### responseTransformer.js
+
 The `responseTransformer.js` file contains a transformation function which transform the response of the external service to a standard format so that the frontend application always receives the same data to operate on:
 
 <Tabs>
@@ -410,17 +511,17 @@ export default async (req, res) => {
   const response = Object.keys(res).flatMap((label) => {
     const metadata = res[label].result.map(({ id, ...rest }) => ({
       id: `geo:${id}`,
-      ...rest
-    }))
+      ...rest,
+    }));
 
     return items[label].map((cellId) => ({
       id: cellId,
-      metadata
-    }))
+      metadata,
+    }));
   });
 
   return response;
-}
+};
 ```
 
 </TabItem>
@@ -432,7 +533,7 @@ export default async (req, res) => {
 
 ```js
 // be sure to export the function as default
-// the function receives as input the request object from the requestTransformer 
+// the function receives as input the request object from the requestTransformer
 // (req) and the response from the external service (res)
 export default async (req, res) => {
   const { items } = req.processed;
@@ -446,7 +547,7 @@ export default async (req, res) => {
     // meta is used to place the new columns in the correct order in the UI.
     meta: {}
   }
-  
+
   // transformation function to obtain the response
   ...
 
@@ -465,9 +566,9 @@ const getMetadata = (metaRaw) => {
     id: `geo:${id}`,
     name,
     score: 100,
-    match: true
-  }))
-}
+    match: true,
+  }));
+};
 
 export default async (req, res) => {
   const { items } = req.processed;
@@ -475,9 +576,9 @@ export default async (req, res) => {
 
   let response = {
     columns: {},
-    meta: {}
-  }
-  
+    meta: {},
+  };
+
   // each input column generated a response from the external service
   res.forEach((serviceResponse, colIndex) => {
     const { meta, rows } = serviceResponse.res;
@@ -489,41 +590,45 @@ export default async (req, res) => {
       response.columns[colId] = {
         label: colId,
         metadata: [],
-        cells: {}
-      }
+        cells: {},
+      };
       // add columns mapping
       response.meta = {
         ...response.meta,
-        [colId]: inputColumns[colIndex]
-      }
+        [colId]: inputColumns[colIndex],
+      };
 
       // add cells to each column
       Object.keys(rows).forEach((metadataId) => {
         // get rows for each metaId
-        const requestRowsIds = items[inputColumns[colIndex]][`geo:${metadataId}`];
+        const requestRowsIds =
+          items[inputColumns[colIndex]][`geo:${metadataId}`];
 
         // build cells
         const cells = requestRowsIds.reduce((acc, rowId) => {
           const cellMetadata = getMetadata(rows[metadataId][property.id]);
 
-          acc[rowId] = cellMetadata && cellMetadata.length > 0 ? {
-            label: cellMetadata[0].name,
-            metadata: cellMetadata
-          } : null;
+          acc[rowId] =
+            cellMetadata && cellMetadata.length > 0
+              ? {
+                  label: cellMetadata[0].name,
+                  metadata: cellMetadata,
+                }
+              : null;
           return acc;
         }, {});
 
         // add cells to column
         response.columns[colId].cells = {
           ...response.columns[colId].cells,
-          ...cells
-        }
+          ...cells,
+        };
       });
-    }); 
+    });
   });
 
   return response;
-}
+};
 ```
 
 </TabItem>
@@ -615,4 +720,3 @@ export default async (req, res) => {
 You can prevent a configured service from being loaded into the runtime of the server using the `exclude` field in the initial configuration, as described [here](./config.md#configuration).
 
 :::
-
