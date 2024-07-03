@@ -44,6 +44,7 @@ ssh -p [PORT_SSH] -N -L 8088:127.0.0.1:8088 asia@[REMOTE_MACHINE_IP]
 ```bash
 npm run start-dev
 ```
+On the first run, a folder `public` is created to host datasets, tables, and users. The `users.info.json` file is populated with `username: test` and `password: test`, that can be used to signin. More users can be added by modifying that file.
 
 ## Start backend application (With docker)
 Ensure that you habe installed `Docker` and `docker-compose` before continuing.
@@ -77,6 +78,7 @@ ssh -p [PORT_SSH] -N -L 8088:127.0.0.1:8088 asia@[REMOTE_MACHINE_IP]
 ```bash
 docker-compose -f docker-compose.dev.yml up
 ```
+On the first run, a folder `public` is created to host datasets, tables, and users. The `users.info.json` file is populated with `username: test` and `password: test`, that can be used to signin. More users can be added by modifying that file.
 
 ## Start frontend application
 Ensure that you have installed `NodeJS` and `npm` before continuing.
