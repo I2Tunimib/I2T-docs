@@ -21,7 +21,10 @@ git clone https://github.com/I2Tunimib/I2T-backend.git
 cd I2T-backend && npm install
 ```
 
-3. Create a `.env` file in the root of the application and fill it with the content you can find [here](https://drive.google.com/file/d/1-2R_VS13Cc9KFbaxFHD21MLpSOII_daH/view?usp=sharing) (you can access the content with a unimib account).
+3. Create a `.env` file in the root of the application. Copy the content of the file .env-sample in your .env file and comment/uncomment/add variables as you need.
+
+<!--
+6. and fill it with the content you can find [here](https://drive.google.com/file/d/1-2R_VS13Cc9KFbaxFHD21MLpSOII_daH/view?usp=sharing) (you can access the content with a unimib account).
 
 4. The ASIA services are not exposed publicly. To communicate with those services a tunnel communication needs to be established. Open a terminal
 and create a tunnel to the ASIA reconciliation service. You can view [here](https://drive.google.com/file/d/1_UPUWeXVldL_s5TTyscgDA-UXKoBNEzk/view?usp=sharing) information about the remote machine (you can access the content with a unimib account):
@@ -35,8 +38,8 @@ Do the same to create a communication with the extension service:
 ```bash
 ssh -p [PORT_SSH] -N -L 8088:127.0.0.1:8088 asia@[REMOTE_MACHINE_IP]
 ```
-
-5. Launch the application:
+-->
+4. Launch the application:
 
 ```bash
 npm run start-dev
@@ -50,7 +53,10 @@ Ensure that you habe installed `Docker` and `docker-compose` before continuing.
 ```bash
 git clone https://github.com/I2Tunimib/I2T-backend.git
 ```
-2. Create a `.env` file in the root of the application and fill it with the content you can find [here](https://drive.google.com/file/d/1-2R_VS13Cc9KFbaxFHD21MLpSOII_daH/view?usp=sharing) (you can access the content with a unimib account).
+2. Create a `.env` file in the root of the application. Copy the content of the file .env-sample in your .env file and comment/uncomment/add variables as you need.
+
+<!--
+and fill it with the content you can find [here](https://drive.google.com/file/d/1-2R_VS13Cc9KFbaxFHD21MLpSOII_daH/view?usp=sharing) (you can access the content with a unimib account).
 
 3. The ASIA services are not exposed publicly. To communicate with those services a tunnel communication needs to be established. Open a terminal
 and create a tunnel to the ASIA reconciliation service. You can view [here](https://drive.google.com/file/d/1_UPUWeXVldL_s5TTyscgDA-UXKoBNEzk/view?usp=sharing) information about the remote machine (you can access the content with a unimib account):
@@ -64,8 +70,9 @@ Do the same to create a communication with the extension service:
 ```bash
 ssh -p [PORT_SSH] -N -L 8088:127.0.0.1:8088 asia@[REMOTE_MACHINE_IP]
 ```
+-->
 
-4. Build docker image and start the container:
+3. Build docker image and start the container:
 
 ```bash
 docker-compose -f docker-compose.dev.yml up
