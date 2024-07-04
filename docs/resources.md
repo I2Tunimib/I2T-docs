@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # Resources
 
 - A version of the system accessible online as a **web app** is available here: [semtui.io](http://vm.chronos.disco.unimib.it:3000/)
