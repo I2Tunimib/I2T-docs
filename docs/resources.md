@@ -19,4 +19,4 @@ sidebar_position: 2
     - _Application of SemTUI to enrich geospatial data:_ De Paoli, M. Ciavotta, R. Avogadro, E. Hristov, M. Borukova, D. Petrova- Antonova, I. Krasteva, An interactive approach to semantic enrichment with geospatial data, Data Knowledge Engineering (2024) 102341. URL: [https://www.sciencedirect.com/science/article/pii/S0169023X2400065X](https://www.sciencedirect.com/science/article/pii/S0169023X2400065X). doi: [https://doi.org/10.1016/j.datak.2024.102341](https://doi.org/10.1016/j.datak.2024.102341).
   - **Demo videos**:
     - Short video describing an application of SemTUI to enrich procurement data using Wikidata: https://youtu.be/vLj4aWUnakE?si=zWESpwbs0WC7edhI
-    - Short video explaining the visualization of annotations computed by a semantic table interpretation and annotation system in SemTUI: https://www.youtube.com/watch?v=B1skOttuYyM       
+    - Short video explaining the visualization of annotations computed by a semantic table interpretation and annotation system in SemTUI: [https://www.youtube.com/watch?v=B1skOttuYyM](https://www.youtube.com/watch?v=JP4ALTIjd9w)       
