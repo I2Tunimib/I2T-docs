@@ -65,7 +65,7 @@ for the annotations resulted from an algorithm of STI and are as follow:
 istance-level annotation;
 - *Column Type Annotation (**CTA**)*: schema-level annotation determined
 to link columns to a KG ontology;
-- *Column Predicate Annotation (**CPA**)*: schema-level annotation determined to find binary relations (proerties of the KG ontology) between
+- *Column Predicate Annotation (**CPA**)*: schema-level annotation determined to find binary relations (properties of the KG ontology) between
 pair of columns of the table;
 
 Those annotations may be generated separately from different interpretation tasks, while other STI approaches use the information of one annotation
