@@ -44,7 +44,7 @@ Here is presented a list of all endpoints which are available at the moment of w
 | /dataset/:idDataset   | GET        | Return a dataset by its ID      |
 | /dataset/:idDataset/table   | GET        | Return all tables of a dataset     |
 | /dataset/:idDataset/table/:idTable   | GET        | Return a table by its dataset ID and table ID   |
-| /dataset/:idDataset/table/:idTable/export   | GET        | Return the :idTable in a given format. Static formats: json (default), csv, and rdf (TBD). Dynemic formats: py and ipynb.   |
+| /dataset/:idDataset/table/:idTable/export   | GET        | Return the :idTable in a given format. Static formats: json (default), csv, and rdf (TBD). Dynamic formats: py and ipynb.   |
 | /dataset   | POST        | Create a new dataset   |
 | /:idDataset/table/:idTable   | PUT        | Update a table   |
 | /:idDataset   | DELETE        | Delete a dataset   |
