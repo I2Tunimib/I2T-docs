@@ -113,7 +113,7 @@ unbuonded, meaning they aren’t and can’t be normalized in an interval.
 
 The other task of STI, which retrieves annotation metadata for the table,
 is applied to its structure. The schema-level annotation task aims to map
-the underlying table schema to a KG ontology. Usually, this task is tackled after the instance-level annotation because of the usuful insights given
+the underlying table schema to a KG ontology. Usually, this task is tackled after the instance-level annotation because of the useful insights given
 from the annotated cells, i.e.: types of the annotated cells give clues for the
 column class. The annotation of the schema involves two different types of
 annotation:
@@ -167,7 +167,7 @@ struggle by introducing two core steps:
 a target KG. The reconciliation step is mainly focused on an entity
 linking algorithm to perform the matching. While the reconciliation
 is enabled through automatic processes, they can produce ambiguous
-results given the amiguity of a table mention and they are usually
+results given the ambiguity of a table mention and they are usually
 not enough to cover all the cases. Human knowledge and judgment is
 usually employed to address those issues;
 - *Extension*: once mentions have been mapped to entities of the KG,

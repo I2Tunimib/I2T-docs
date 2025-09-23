@@ -14,7 +14,7 @@ The backend server has two main roles to fulfill: **External services aggregator
 
 ## Technology stack
 - **NodeJS**: the core technology to build the backend infrastructure. More details are available [here](https://nodejs.org/it/).
-- **ExpressJS**: it's a NodeJS framework primarly used to build APIs. More details [here](https://expressjs.com/).
+- **ExpressJS**: it's a NodeJS framework primarly used to build APIs. More details are available [here](https://expressjs.com/).
 
 ## Structure
 

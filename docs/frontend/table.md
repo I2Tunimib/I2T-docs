@@ -15,7 +15,7 @@ presented to the reader.
 In the above figure the table viewer is shown with each major part highlighted
 in red. Each region encloses within it, features that are logically related to
 each other:
-1. includes the name of the table, which can be changed anytime by the
+1. This section includes the name of the table, which can be changed anytime by the
 user, and a last modified date visualized in a human readable format.
 The last modified date gets updated each time an action changes the
 data of the table, so that the UI can alert the user if there are changes
@@ -27,9 +27,9 @@ to the dashboard to select a new table to visualize its data, the user
 is prompted with a warning message that he needs to confirm before
 proceeding.
 
-2. This section includes actions that can be performed on the whole table, also considered as global actions. Global actions affect the entire
-visualization of the table, or trigger events that take into their contexts
-the whole table. Starting from the component at the far left, a Button
+2. This section includes actions that can be performed on the whole table, also considered as global actions. They can
+affect the entire table’s visualization, or trigger events that take into their contexts
+the whole table. Starting from the component at the top left, a Button
 Group enables a change to the current visualization of the table. At
 the moment a table format and a raw format, showing the table data
 as the W3C JSON structure representation, are currently developed
@@ -46,8 +46,8 @@ that may affect how some elements of the table are displayed, and a
 tutorial to help guide users through the basics of the tool.
 
 3. While the previous actions are included in the Toolbar component of
-the table viewer, the following actions are part of the SubToolbar component. The SubToolbar is essentialy divided into two logic groups.
-The first group is reserved to contextual actions which are enabled on
+the table viewer, the following group of actions are part of the SubToolbar component, which is divided into two logic groups. Considering the first one,
+it is reserved to contextual actions which are enabled on
 the selection of one or more table elements (cells, columns, or rows),
 and may require some conditions to be met. Some of those functionalities are row/column deletion, cell inspection, reconciliation, extension.
 For example, the extension action is enabled when one or more columns
@@ -59,22 +59,19 @@ table.
 4. The second group contained in the SubToolbar component, contains
 actions related to table search and filtering.
 
-5. The table footer is left to present the user with some statistics about the
+5. The footer, at the left bottom of the table, reports to the users some statistics about the
 table: the number of columns and rows, a percentage of the annotations
 of the table cells, and some information displayed contextually to a
 selection of cells.
 
-6. Finally, the last component is the table. The table is built with a
-set of fully modular sub-components, so that future changes can be
-implemented with ease. To efficiently render a table, [React Table](https://react-table.tanstack.com/)
-has been used. React Table provides a set of APIs to build lightweight,
-fast and extensible tables. The peculiarity of this library is that it
-doesn’t provide developers with prebuilt UI components, instead it is
-a headless UI library which doesn’t supply any UI elements leaving
-developers in full charge of utilizing performant APIs (as a set of React
-Hooks) to design their own table UI. SemTUI has tables as its core
-elements and, while it is still a prototype, it’s important to ensure that
-it’s architecture is future-proof in terms of development.
+6. Finally, the last component is the table itself. It's built with
+a set of fully modular sub-components for easy future changes.
+To efficiently render the table, the [TanStack Table](https://tanstack.com/table/) library was used,
+which provides a set of APIs to build lightweight, fast, and extensible tables.
+Its key feature is its "headless" nature; it doesn't provide any pre-built UI elements, 
+giving developers full control to design their own table UI using performant APIs
+(like React Hooks). Since tables are a core element of SemTUI, and it's a prototype,
+it's important to ensure that its architecture is future-proof in terms of development.
 
 ## Table component
 The table component is composed of multiple components so that it can be fully customizable by developers. React Table, on the other hand, provides all API and data structures to build it efficiently.

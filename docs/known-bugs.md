@@ -12,7 +12,6 @@ sidebar_position: 7
 - Links of the header column for the entity field don't work.
 
 # Improvements
-- Improve suggestion in the table search field.
 - Disable the expand header function for the unreconciled cells.
 - In the Refine Matching dialog the candidate reconcile options are showed sorted by score in ascending order instead of descending order.
 - In the Refine Maching dialog add the possibility to search the different types with a search field. 

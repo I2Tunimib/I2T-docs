@@ -7,9 +7,9 @@ Redux doesn’t allow any side effects in its reducer
 functions, preventing developers to encapsulate the whole application logic
 in a single place. SemTUI makes use of a particular middleware layer, introduced between an action dispatcher and a reducer function, allowing to
 execute any side effects before reaching a reducer. This middleware layer is
-called thunk. Thunk is a general term that means a piece of code that does
-some delayed work. Rather than executing some logic now, a function can be
-called to perform an action later on. In Redux specifically, thunks are a pattern which encapsulates logic, including asynchronous logic, inside functions
+called Thunk, which means that a piece of code is still working, even if it does some delays:
+rather than executing some logic now, a function can be called to perform an action later on.
+In Redux specifically, thunks are a pattern which encapsulates logic, including asynchronous logic, inside functions
 that can interact with the global store through other action dispatchers and
 slices of the state.
 

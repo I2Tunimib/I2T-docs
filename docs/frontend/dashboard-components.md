@@ -3,7 +3,7 @@ sidebar_position: 5
 ---
 
 # Dashboard components
-The dashboard visualize in a table structure informations for datasets and tables. Each information can be customized to be displayed with a particular component mapped to **type** data field as explained in the backend section:
+The dashboard visualizes in a table structure informations for datasets and tables. Each information can be customized to be displayed with a particular component mapped to **type** data field as explained in the backend section:
 
 ```tsx title="pages/Dashboard/cellComponentConfig.tsx"
 export const CELL_COMPONENTS_TYPES: Record<CellComponent, CellComponentProps> = {

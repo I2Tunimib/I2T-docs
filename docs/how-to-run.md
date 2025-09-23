@@ -47,7 +47,7 @@ npm run start-dev
 On the first run, a folder `public` is created to host datasets, tables, and users. The `users.info.json` file is populated with `username: test` and `password: test`, that can be used to signin. More users can be added by modifying that file.
 
 ## Start backend application (With docker)
-Ensure that you habe installed `Docker` and `docker-compose` before continuing.
+Ensure that you have installed `Docker` and `docker-compose` before continuing.
 
 1. Clone the repository:
 
