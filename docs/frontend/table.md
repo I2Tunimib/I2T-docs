@@ -56,6 +56,7 @@ Functionalities include:
 - **Expand cell**: opens a detailed view of the selected cell, showing reconciled data and any additional linked information. 
 - **Expand header**: shows the relationships between the reconciled entities of the selected column header, helping users understand connections in the KG. 
 - **View dense or accessible**: toggle between dense and accessible view for the selected columns, improving readability depending on the amount of data. 
+- **Modify function**: allows users to apply transformation functions to the selected column(s), such as date formatting or text manipulation, updating cell values accordingly.
 - **Reconcile function**: available only if one or more columns are selected
 - **Extend function**: enabled only if one or more selected columns are already reconciled
 
