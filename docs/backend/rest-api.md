@@ -28,8 +28,6 @@ on the file system.
 
 Here is presented a list of all endpoints which are available at the moment of writing:
 
-Here is presented a list of all endpoints which are available at the moment of writing:
-
 | Endpoint                                                              | Method | Return                                                                                                 |
 |----------------------------------------------------------------------|--------|--------------------------------------------------------------------------------------------------------|
 | /config                                                              | GET    | Configuration of dynamic services necessary for the setup of the UI                                   |
