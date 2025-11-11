@@ -16,7 +16,7 @@ following the framework’s structure and conventions.
 
 ## Service Structure
 
-Services are situated in the `services` folder at the root of the application. They are grouped by their core functionality. At the moment there are services of types `reconciliator` and `extender`. Each service is constitued by three components:
+Services are situated in the `services` folder at the root of the application. They are grouped by their core functionality. At the moment there are services of types `reconciliator` and `extender`. Each service is composed of three components:
 
 ```jsx title="Service structure"
 📦serviceId
