@@ -4,12 +4,6 @@ sidebar_position: 1
 
 # Introduction
 
-This section serves as a guide for future developers who may need to introduce a new
-Service Category. It indicates the required steps to integrate the new category both in
-the **backend** (core logic, API, configuration) and in the **frontend** (UI representation and interaction).
-
-## Definition of Service Category
-
 In the I2T framework, a Service Category defines a functional class of modules that
 can interact with the system through a standardized interface.
 Each category groups services that share a similar purpose and follow a common
@@ -76,6 +70,12 @@ Two different pipeline exists for reconciliators, extenders and modifiers servic
 and `./api/services/modification/modification-pipeline.js`.
 
 :::
+
+## Adding a new Service Category
+
+This section serves as a guide for future developers who may need to introduce a new
+Service Category. It indicates the required steps to integrate the new category both in
+the **backend** (core logic, API, configuration) and in the **frontend** (UI representation and interaction).
 
 ## Backend Integration
 

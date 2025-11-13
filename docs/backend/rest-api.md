@@ -28,24 +28,25 @@ on the file system.
 
 Here is presented a list of all endpoints which are available at the moment of writing:
 
-| Endpoint                                                              | Method | Return                                                                                                 |
-|----------------------------------------------------------------------|--------|--------------------------------------------------------------------------------------------------------|
-| /config                                                              | GET    | Configuration of dynamic services necessary for the setup of the UI                                   |
-| /extenders/list                                                      | GET    | Get a list of all available extension services                                                         |
-| /extenders/asia/geonames                                             | POST   | Extend data with asia geonames                                                                         |
-| /extenders/asia/weather                                              | POST   | Extend data with asia weather                                                                          |
-| /reconciliators/list                                                 | GET    | Get a list of all available reconciliators services                                                    |
-| /reconciliators/asia/geonames                                       | POST   | Reconciliate data with asia geonames                                                                   |
-| /reconciliators/asia/keywordsmatcher                                | POST   | Reconciliate data with asia keywords matcher                                                           |
-| /reconciliators/asia/wikifier                                       | POST   | Reconciliate data with asia wikifier                                                                   |
-| /reconciliators/wikidata                                            | POST   | Reconciliate data with wikidata open refine                                                            |
-| /full-annotation/mantis/dataset/:idDataset/table/:idTable           | POST   | Annotation of a full table with Mantis service                                                         |
-| /dataset                                                            | GET    | List of all datasets                                                                                   |
-| /dataset/:idDataset                                                 | GET    | Return a dataset by its ID                                                                             |
-| /dataset/:idDataset/table                                           | GET    | Return all tables of a dataset                                                                         |
-| /dataset/:idDataset/table/:idTable                                  | GET    | Return a table by its dataset ID and table ID                                                          |
-| /dataset/:idDataset/table/:idTable/export                           | GET    | Return the :idTable in a given format. Static formats: json (default), csv, and rdf (TBD). Dynamic formats: py and ipynb. |
-| /dataset                                                            | POST   | Create a new dataset                                                                                   |
-| /:idDataset/table/:idTable                                          | PUT    | Update a table                                                                                         |
-| /:idDataset                                                         | DELETE | Delete a dataset                                                                                       |
-| /:idDataset/table/:idTable                                          | DELETE | Delete a table of a dataset                                                                            |
+| Endpoint                                                  | Method | Return                                                                                                 |
+|-----------------------------------------------------------|--------|--------------------------------------------------------------------------------------------------------|
+| /config                                                   | GET    | Configuration of dynamic services necessary for the setup of the UI                                   |
+| /extenders/list                                           | GET    | Get a list of all available extension services                                                         |
+| /extenders/asia/geonames                                  | POST   | Extend data with asia geonames                                                                         |
+| /extenders/asia/weather                                   | POST   | Extend data with asia weather                                                                          |
+| /reconciliators/list                                      | GET    | Get a list of all available reconciliators services                                                    |
+| /reconciliators/asia/geonames                             | POST   | Reconciliate data with asia geonames                                                                   |
+| /reconciliators/asia/keywordsmatcher                      | POST   | Reconciliate data with asia keywords matcher                                                           |
+| /reconciliators/asia/wikifier                             | POST   | Reconciliate data with asia wikifier                                                                   |
+| /reconciliators/wikidata                                  | POST   | Reconciliate data with wikidata open refine                                                            |
+| /modifiers/list                                           | GET    | Get a list of all available modifiers functions                                                                  |
+| /full-annotation/mantis/dataset/:idDataset/table/:idTable | POST   | Annotation of a full table with Mantis service                                                         |
+| /dataset                                                  | GET    | List of all datasets                                                                                   |
+| /dataset/:idDataset                                       | GET    | Return a dataset by its ID                                                                             |
+| /dataset/:idDataset/table                                 | GET    | Return all tables of a dataset                                                                         |
+| /dataset/:idDataset/table/:idTable                        | GET    | Return a table by its dataset ID and table ID                                                          |
+| /dataset/:idDataset/table/:idTable/export                 | GET    | Return the :idTable in a given format. Static formats: json (default), csv, and rdf (TBD). Dynamic formats: py and ipynb. |
+| /dataset                                                  | POST   | Create a new dataset                                                                                   |
+| /:idDataset/table/:idTable                                | PUT    | Update a table                                                                                         |
+| /:idDataset                                               | DELETE | Delete a dataset                                                                                       |
+| /:idDataset/table/:idTable                                | DELETE | Delete a table of a dataset                                                                            |

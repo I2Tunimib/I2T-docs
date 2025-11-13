@@ -3,7 +3,7 @@ sidebar_position: 6
 ---
 
 # Exchanged Data Format
-In the following section are described the data formats exchanged between client and server for reconciliation and extension requests. The descriptions is presented in Typescript.
+In the following section are described the data formats exchanged between client and server for reconciliation, extension and modification requests. The descriptions is presented in Typescript.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -154,3 +154,64 @@ interface Cell = {
   metadata?: EntityMetadata[];
 }
 ```
+
+## Modification
+
+### Request
+The **req** object of a **requestTransformer** contains the original request from the client and *optionally* the processed request (see [External services aggregator](/backend/services-aggregator.md)):
+
+<Tabs>
+<TabItem value="original" label="Request (original)">
+
+```ts
+interface ModificationRequestOriginal {
+  // items to modify: columnId -> { rowId -> [value] }
+  items: Record<string, Item>;
+  // operation properties, may vary depending on operation type
+  props: {
+    operationType: string;
+    selectedColumns: string[];
+    [key: string]: any; // other operation-specific props
+  };
+}
+```
+
+</TabItem>
+
+<TabItem value="processed" label="Request (processed)">
+
+```ts
+interface ModificationRequestProcessed {
+  // items after any preprocessing
+  items: Record<string, Item>;
+  // operation properties, may vary depending on operation type
+  props: {
+    operationType: string;
+    selectedColumns: string[];
+    [key: string]: any; // other operation-specific props
+  };
+}
+
+```
+
+</TabItem>
+
+</Tabs>
+
+### Response
+
+```ts
+interface ModificationResponseProcessed {
+  // resulting columns after modification
+  columns: Record<string, Column>;
+  meta: {};
+}
+```
+
+:::info
+
+Unlike Reconciliation and Extension, Modification typically only updates cell values in the selected columns
+and does not add metadata, while operations such as split or join create additional columns.
+
+:::
+

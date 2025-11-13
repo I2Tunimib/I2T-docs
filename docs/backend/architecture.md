@@ -30,6 +30,7 @@ In the following snippet is shown the structure of the backend server:
  ┣ 📂config
  ┣ 📂services
  ┃ ┣ 📂extenders
+ ┃ ┣ 📂modifiers
  ┃ ┗ 📂reconciliators
  ┣ 📂utils
  ┣ 📜app.js
@@ -39,7 +40,7 @@ In the following snippet is shown the structure of the backend server:
 
 - `api`: contains the components that builds the REST API: controllers, routes, services. More details are presented in the next section.
 - `config`: contains files necessary to parse the initial configuration, or are relative to the configuration of the whole application.
-- `services`: contains external services configurations. At the moment external services can be reconciliators and extenders.
+- `services`: contains external services configurations. At the moment external services can be reconciliators, extenders and modifiers.
 - `utils`: contains utility modules and functions.
 - `app.js`: is the main of the Express server.
 - `socket.js`: is the main of the SocketIO app.

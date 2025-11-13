@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-# How to add a new Service
+# Service Aggregator
 
 Many services might be available to perform operations required for the Semantic Enrichment of a table. For example,
 multiple services can provide their own logic to perform a STI approach and generate annotations for a given table.
@@ -14,9 +14,10 @@ relations between pairs of columns.
 The Service Aggregator Layer is designed so that new external services can be easily integrated by developers,
 following the framework’s structure and conventions.
 
-## Service Structure
+## Adding a new Service
 
-Services are situated in the `services` folder at the root of the application. They are grouped by their core functionality. At the moment there are services of types `reconciliator` and `extender`. Each service is composed of three components:
+Services are situated in the `services` folder at the root of the application. They are grouped by their core functionality.
+At the moment there are services of types `reconciliator`, `extender` and `modifier`. Each service is constitued by three components:
 
 ```jsx title="Service structure"
 📦serviceId
@@ -24,6 +25,9 @@ Services are situated in the `services` folder at the root of the application. T
  ┣ 📜requestTransformer.js
  ┗ 📜responseTransformer.js
 ```
+
+To add a new service of a given category, simply create a new folder named after the service ID and define the required
+components inside it.
 
 ### index.js
 
