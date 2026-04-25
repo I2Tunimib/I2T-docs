@@ -1,4 +1,8 @@
 {
   "label": "Discover Services",
-  "position": 2
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Explore all the services available in the I2T platform."
+  }
 }
