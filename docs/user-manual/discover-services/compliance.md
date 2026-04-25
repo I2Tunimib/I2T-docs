@@ -48,7 +48,7 @@ Suggested actions:
 
 - **remove**: Delete the column if unnecessary for the specified purpose.
 
-![Compliance GIF](./compliance.gif)
+![Compliance GIF](/img/compliance.gif)
 
 ---
 
