@@ -11,25 +11,25 @@ Services that add complementary data or attributes to existing resources by fetc
 
 ## Geo Properties (Wikidata)
 
-An extender that retrieves geographic properties from Wikidata for the entities in the selected reconciled column.<br /><br /><strong>Input</strong>: A <em>column reconciled against Wikidata</em>, with entities' ID in any supported format (e.g., <code>
+An extender that retrieves geographic properties from Wikidata for the entities in the selected reconciled column.<br /><br />**Input**: A *column reconciled against Wikidata*, with entities' ID in any supported format (e.g., `
 
 ---
 
 ## Meteo Properties (OpenMeteo)
 
-An extender that adds weather properties for the geographic points in the selected <em>reconclied column</em> (latitude, longitude) for a given date provided in another column.<br /><br /><strong>Input</strong>: A <em>column reconciled with latitute and longitude</em> (e.g., <code>
+An extender that adds weather properties for the geographic points in the selected *reconclied column* (latitude, longitude) for a given date provided in another column.<br /><br />**Input**: A *column reconciled with latitute and longitude* (e.g., `
 
 ---
 
 ## Annotation properties
 
-An extender that consolidates existing linking annotations by generating new column(s) containing <em>ID</em> and/or <em>name</em> values from the reconciled column.<br /><br /><strong>Input</strong>: A <em> reconciled column </em> against any dataset or knowledge graph; a <em> selection of the properties </em> to extract (ID in any supported format <code>
+An extender that consolidates existing linking annotations by generating new column(s) containing *ID* and/or *name* values from the reconciled column.<br /><br />**Input**: A * reconciled column * against any dataset or knowledge graph; a * selection of the properties * to extract (ID in any supported format `
 
 ---
 
 ## SPARQL (Wikidata)
 
-An extender that executes SPARQL queries on Wikidata for the entities in the selected column.<br /><br /><strong>Input</strong>: A <em>reconciled column</em> with Wikidata entities; plus the variables and body of the SPARQL query. Specify the variables for the<ul style="list-style-
+An extender that executes SPARQL queries on Wikidata for the entities in the selected column.<br /><br />**Input**: A *reconciled column* with Wikidata entities; plus the variables and body of the SPARQL query. Specify the variables for the<ul style="list-style-
 
 ---
 

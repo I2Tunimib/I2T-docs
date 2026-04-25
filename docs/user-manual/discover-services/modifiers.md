@@ -29,7 +29,7 @@ Pseudoanonymize or de-anonymize data in the selected column using encryption ser
 
 ## Regular Expression Modifier
 
-A transformation function that allows users to apply regular expression operations on text data, including pattern matching, replacement, and extraction of matched values.<br /><br /><strong>Common
+A transformation function that allows users to apply regular expression operations on text data, including pattern matching, replacement, and extraction of matched values.<br /><br />**Common
 
 ---
 
