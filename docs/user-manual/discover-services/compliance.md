@@ -17,7 +17,7 @@ determines whether the dataset falls under the scope of GDPR.
 
 **Input**: The current table and a description of the data processing purpose.
 
-**Output**: A table overview (summary of GDPR status and confidence) and a detailed column analysis 
+<br>**Output**: A table overview (summary of GDPR status and confidence) and a detailed column analysis 
 (classification, suggested action, reasoning).
 
 The possible table GDPR statuses include:

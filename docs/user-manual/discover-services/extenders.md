@@ -18,7 +18,7 @@ An extender that retrieves geographic properties from Wikidata for the entities 
 - Time zone
 - Postal code
 
-**Output**: A new column for each selected property, populated with the corresponding values  retrieved from Wikidata.
+<br>**Output**: A new column for each selected property, populated with the corresponding values  retrieved from Wikidata.
 
 **Note**: Some entities may lack one or more of the requested properties in Wikidata.
 
@@ -42,7 +42,7 @@ Hourly parameters, returning values at a specific hour of a specific day:
 - Relative humidity at 2 meters above ground in %
 - Precipitation (rain + snow) in mm
 
-**Output**: A new column for every requested parameter.
+<br>**Output**: A new column for every requested parameter.
 
 **Note**: Only dates prior to 5 days of the current date are covered. All dates in CET timezone.  If the date column contains full datetime (`yyyy-MM-dd'T'HH:mm`) and daily parameters are  selected, the hour information will be ignored.
 
@@ -53,8 +53,7 @@ Hourly parameters, returning values at a specific hour of a specific day:
 An extender that consolidates existing linking annotations by generating new column(s) containing  ID and/or name values from the reconciled column.
 
 **Input**: A  reconciled column  against any dataset or knowledge graph;  a  selection of the properties  to extract (ID in any supported format `prefix:id`,  name as string).
-
-**Output**: One new column for each requested property, containing the  extracted metadata from the reconciled entities.
+<br>**Output**: One new column for each requested property, containing the  extracted metadata from the reconciled entities.
 
 ---
 
@@ -68,8 +67,7 @@ An extender that executes SPARQL queries on Wikidata for the entities in the sel
 - ORDER BY and LIMIT clause (optionally).
 
 While the variable `?item` is automatically included with the values from the selected column, and also the VALUES clause is automatically added.
-
-**Output**: A new column for each selected variable containing the retrieved property values  for each entity, returned as strings or numbers according to Wikidata property types.
+<br>**Output**: A new column for each selected variable containing the retrieved property values  for each entity, returned as strings or numbers according to Wikidata property types.
 
 **Notes**: Some properties may be missing for certain entities in Wikidata.  Ensure variable names correspond to properties used in the query body.
 
