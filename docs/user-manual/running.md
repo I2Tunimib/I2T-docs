@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# How to run
+# Running
 
 To run the application locally both client and server applications have to run at the same time.
 

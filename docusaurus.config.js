@@ -45,10 +45,16 @@ const config = {
         },
         items: [
           {
-            type: 'doc',
-            docId: 'intro',
+            to: '/user-manual/introduction',
+            label: 'User Manual',
             position: 'left',
-            label: 'Docs',
+            sidebarId: 'userSidebar',
+          },
+          {
+            to: '/technical-manual/introduction',
+            label: 'Technical Manual',
+            position: 'left',
+            sidebarId: 'technicalSidebar',
           },
           {
             href: 'https://github.com/I2Tunimib/I2T-docs',

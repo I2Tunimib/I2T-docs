@@ -1,8 +1,5 @@
 ---
-id: save-table-get-table-api
-slug: /api/save-get-table
 sidebar_position: 1
-title: Save Table & Get Table API Data Format
 ---
 
 # Save Table & Get Table API Data Format

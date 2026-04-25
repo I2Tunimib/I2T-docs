@@ -1,8 +1,8 @@
 ---
-sidebar_position: 6
+sidebar_position: 1
 ---
 
-# Service Aggregator
+# Introduction
 
 Many services might be available to perform operations required for the Semantic Enrichment of a table. For example,
 multiple services can provide their own logic to perform a STI approach and generate annotations for a given table.
@@ -888,6 +888,6 @@ export default async (req, res) => {
 
 :::info
 
-You can prevent a configured service from being loaded into the runtime of the server using the `exclude` field in the initial configuration, as described [here](./config.md#configuration).
+You can prevent a configured service from being loaded into the runtime of the server using the `exclude` field in the initial configuration, as described [here](../config.md#configuration).
 
 :::
