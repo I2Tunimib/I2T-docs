@@ -23,17 +23,17 @@ An extender that retrieves geographic properties from Wikidata for the entities 
 
 ## COFOG (LLM Classifier)
 
-A classification service that assigns a government department or public organization to the most appropriate category among the ten top-level COFOG (Classification of the Functions of Government - For more details, click <a href='https://en.wikipedia.org/wiki/Classification_of_the_Functions_of_Government' target='_blank'>here</a>.) options. The classification is based on the organization's name, description, country, and Wikidata metadata.<br /><br />" +
-      `<strong>LLM model:</strong> ${process.env.LLM_MODEL || "phi4-mini"}<br /><br />` +
-      "<strong>Input</strong>: Organization details including <em>name</em>, <em>description</em>, <em>country</em> and optional <em>Wikidata fields</em> such as description or type.<br /><strong>Output</strong>: New columns containing:<ul ><li>Predicted COFOG category (<code>cofog_label: 01-10</code>). </li><li>Confidence level (high/medium/low). </li><li>Reasoning notes</li></ul>
+A classification service that assigns a government department or public organization to the most appropriate category among the ten top-level COFOG (Classification of the Functions of Government - For more details, click <a href='https://en.wikipedia.org/wiki/Classification_of_the_Functions_of_Government' target='_blank'>here</a>.) options. The classification is based on the organization's name, description, country, and Wikidata metadata.<br /><br />"
+      `<strong>LLM model:</strong> phi4-mini<br /><br />`
+<strong>Input</strong>: Organization details including <em>name</em>, <em>description</em>, <em>country</em> and optional <em>Wikidata fields</em> such as description or type.<br /><strong>Output</strong>: New columns containing:<ul ><li>Predicted COFOG category (<code>cofog_label: 01-10</code>). </li><li>Confidence level (high/medium/low). </li><li>Reasoning notes</li></ul>
 
 ---
 
 ## Custom (LLM Extender)
 
-A flexible LLM-powered extension service that generates new columns based on a custom prompt. Use the LLM to intelligently enrich your data by creating additional attributes derived from existing column values.<br /><br />" +
-      `<strong>LLM model:</strong> ${process.env.LLM_MODEL || "phi4-mini"}<br /><br />` +
-      "<strong>Input</strong>: Column values to extend and custom instructions describing how to extend them.<br /><strong>Output</strong>: New columns populated with LLM-generated content based on your specifications.<br /><br /><strong>How to use:</strong><br /><ul ><li>Specify output column names (comma-separated, e.g., 'summary, category, sentiment').</li><li>Write instructions for what to do with the cell data. The LLM will receive both your instructions and the actual cell data.</li><li>For each column, specify what value should be returned.</li></ul><strong>Example:</strong><br />Columns: <code>length, first_word, last_word</code><br />Prompt: <code>Count the characters and return as 'length'. Extract the first word as 'first_word' and the last word as 'last_word'.</code>
+A flexible LLM-powered extension service that generates new columns based on a custom prompt. Use the LLM to intelligently enrich your data by creating additional attributes derived from existing column values.<br /><br />"
+      `<strong>LLM model:</strong> phi4-mini<br /><br />`
+<strong>Input</strong>: Column values to extend and custom instructions describing how to extend them.<br /><strong>Output</strong>: New columns populated with LLM-generated content based on your specifications.<br /><br /><strong>How to use:</strong><br /><ul ><li>Specify output column names (comma-separated, e.g., 'summary, category, sentiment').</li><li>Write instructions for what to do with the cell data. The LLM will receive both your instructions and the actual cell data.</li><li>For each column, specify what value should be returned.</li></ul><strong>Example:</strong><br />Columns: <code>length, first_word, last_word</code><br />Prompt: <code>Count the characters and return as 'length'. Extract the first word as 'first_word' and the last word as 'last_word'.</code>
 
 ---
 
