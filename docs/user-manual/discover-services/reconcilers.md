@@ -11,10 +11,10 @@ Reconcilers are services responsible for aligning or enriching tabular data with
 
 ## Geocoding: Geo Coordinates (GeoNames)
 
-A geographic reconciliation service that links location mentions to GeoNames entries, providing   city-level or higher granularity  with latitude, longitude, labels, and descriptions.
+A geographic reconciliation service that links location mentions to GeoNames entries, providing  <em> city-level or higher granularity </em> with latitude, longitude, labels, and descriptions.
 
-**Input**: A column of location mentions to reconcile; plus optional information taken  other columns providing context to improve reconciliation accuracy.
-<br>**Output**: Annotations for each matched mention, including  ID,  latitude,  longitude,  label and  description  in a W3C-compliant format.
+**Input**: A <em>column of location mentions</em> to reconcile; plus optional information taken  other columns providing context to improve reconciliation accuracy.  
+**Output**: Annotations for each matched mention, including <em> ID</em>, <em> latitude</em>, <em> longitude</em>, <em> label</em> and <em> description </em> in a W3C-compliant format.
 
 **Note**: Requires access to the GeoNames service
 
@@ -22,10 +22,10 @@ A geographic reconciliation service that links location mentions to GeoNames ent
 
 ## Geocoding: Geo Coordinates (HERE)
 
-A geographic reconciliation service that links location mentions to HERE entries, providing  street-level  or higher granularity  with latitude, longitude, names, and descriptions.
+A geographic reconciliation service that links location mentions to HERE entries, providing <em> street-level  or higher granularity </em> with latitude, longitude, names, and descriptions.
 
-**Input**: A column of location mentions to reconcile; plus optional information taken  from other columns providing context to improve reconciliation accuracy.
-<br>**Output**: Annotations for each matched mention, including  ID (formatted as  `georss:lat,lon`),  name (official Latin name of the address) and   description .
+**Input**: A <em>column of location mentions</em> to reconcile; plus optional information taken  from other columns providing context to improve reconciliation accuracy.  
+**Output**: Annotations for each matched mention, including <em> ID</em> (formatted as  `georss:lat,lon`), <em> name</em> (official Latin name of the address) and  <em> description </em>.
 
 **Note**: Requires access to the HERE service
 
@@ -33,10 +33,10 @@ A geographic reconciliation service that links location mentions to HERE entries
 
 ## Linking: GeoNames (GeoNames)
 
-A geographic reconciliation service that links location mentions to GeoNames entries,  providing  city-level or higher granularity  with IDs, names, and descriptions, without explicitly adding coordinates. 
+A geographic reconciliation service that links location mentions to GeoNames entries,  providing <em> city-level or higher granularity </em> with IDs, names, and descriptions, without explicitly adding coordinates.
 
-**Input**: A column of location mentions to reconcile; plus optional information taken  from other columns providing context to improve reconciliation accuracy.
-<br>**Output**: Annotations for each matched mention, including  ID (formatted as  `geoCoord:lat,lon`),  label and  description  in a W3C-compliant format.
+**Input**: A <em>column of location mentions</em> to reconcile; plus optional information taken  from other columns providing context to improve reconciliation accuracy.  
+**Output**: Annotations for each matched mention, including <em> ID</em> (formatted as  `geoCoord:lat,lon`), <em> label</em> and <em> description </em> in a W3C-compliant format.
 
 **Note**: Requires access to the GeoNames service.
 
@@ -44,10 +44,10 @@ A geographic reconciliation service that links location mentions to GeoNames ent
 
 ## Linking: In-Table Linking
 
-A local reconciliation service that links values from a selected column to corresponding values in another column of the same table, treating the second column as reference metadata for enrichment. 
+A local reconciliation service that links values from a selected column to corresponding values in another column of the same table, treating the second column as reference metadata for enrichment.
 
-**Input**: A column to reconcile; a reference column containing target values  to reconcile the selected column; an URI prefix for generating URIs for matched values  (e.g., `wd:`, `geo:`). 
-<br>**Output**: Local links between matching cells, enriched with the selected URI prefix. 
+**Input**: A <em>column to reconcile</em>; a <em>reference column</em> containing target values  to reconcile the selected column; an <em>URI prefix</em> for generating URIs for matched values  (e.g., `wd:`, `geo:`).  
+**Output**: Local links between matching cells, enriched with the selected URI prefix.
 
 **Note**: External APIs are called only to retrieve types and descriptions for the linked entities.
 
@@ -55,10 +55,10 @@ A local reconciliation service that links values from a selected column to corre
 
 ## Linking: Wikidata (LionLinker)
 
-A reconciliation service using LionLinker for table annotation, linking mentions to Wikidata entities.  
+A reconciliation service using LionLinker for table annotation, linking mentions to Wikidata entities.
 
-**Input**: A column of mentions to reconcile; possibly additional columns  providing context to improve reconciliation accuracy.
-<br>**Output**: Annotations for each matched mention, including ID, name,  description and types.
+**Input**: A <em>column of mentions</em> to reconcile; possibly additional columns  providing context to improve reconciliation accuracy.  
+**Output**: Annotations for each matched mention, including <em>ID</em>, <em>name</em>,  <em>description</em> and <em>types</em>.
 
 **Note**: Requires access to the LionLinker service. More precise than OpenRefine-based  reconciliation.
 
@@ -66,12 +66,23 @@ A reconciliation service using LionLinker for table annotation, linking mentions
 
 ## Linking: Wikidata (Alligator)
 
-A general purpose reconciliation service using Alligator to match mentions to Wikidata entities.  It enriches  body cells  (mentions) with Wikidata IDs, labels, descriptions, and types, and enriches   header cells  (schema) with types and properties.
+A general purpose reconciliation service using Alligator to match mentions to Wikidata entities.  It enriches <em> body cells </em> (mentions) with Wikidata IDs, labels, descriptions, and types, and enriches  <em> header cells </em> (schema) with types and properties.
 
-**Input**: A  column of mentions  (strings) to reconcile; possibly additional columns  providing context to improve reconciliation accuracy.
-<br>**Output**: Metadata associated with body and schema cells in W3C compliant format, including   IDs,  labels,  descriptions,  types and  properties.
+**Input**: A <em> column of mentions </em> (strings) to reconcile; possibly additional columns  providing context to improve reconciliation accuracy.  
+**Output**: Metadata associated with body and schema cells in W3C compliant format, including  <em> IDs</em>, <em> labels</em>, <em> descriptions</em>, <em> types</em> and <em> properties</em>.
 
 **Note**: Requires access to the Alligator service. More precise than OpenRefine-based  reconciliation.
+
+---
+
+## Linking: Wikidata (OpenRefine)
+
+A general purpose reconciliation service using the OpenRefine service, adding Wikidata IDs, labels,  and descriptions.
+
+**Input**: A <em>column of mentions</em> (strings) to reconcile.  
+**Output**: Metadata associated with mentions in row cells and schema headers, including  <em>ID</em>, <em>label</em> and <em>description</em> in W3C-compliant format.
+
+**Note**: Requires access to the OpenRefine reconciliation service; Reconciliation is performed  without using other columns for context, which may reduce accuracy compared to other services.
 
 ---
 

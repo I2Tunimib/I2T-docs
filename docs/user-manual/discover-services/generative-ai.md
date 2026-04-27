@@ -13,10 +13,10 @@ Generative AI services leverage Large Language Models (LLMs) to perform complex 
 
 A flexible LLM-powered reconciliation service that matches text values to entities based on a custom prompt.  Use the LLM to intelligently reconcile data to knowledge base entities with custom matching logic.
 
-**LLM model:** phi4-mini
+**LLM model:** ${process.env.LLM_MODEL || "phi4-mini"}
 
-**Input**: Column values to reconcile and custom instructions for matching.
-<br>**Output**: Entity matches with IDs, labels, descriptions, types, and confidence scores.
+**Input**: Column values to reconcile and custom instructions for matching.  
+**Output**: Entity matches with IDs, labels, descriptions, types, and confidence scores.
 
 **How to use:**
 Write instructions describing how to match the values. The LLM will receive each cell value and return entity information.
@@ -30,10 +30,10 @@ Prompt: `Match this location to a Wikidata entity. Return the entity ID, name, d
 
 A flexible LLM-powered reconciliation service that matches text values to Wikidata entities based on a custom prompt.  Use the LLM to intelligently reconcile data to Wikidata knowledge base entities with custom matching logic.
 
-**LLM model:** phi4-mini
+**LLM model:** ${process.env.LLM_MODEL || "phi4-mini"}
 
-**Input**: Column values to reconcile and custom instructions for matching.
-<br>**Output**: Entity matches with Wikidata IDs, labels, descriptions, types, and confidence scores.
+**Input**: Column values to reconcile and custom instructions for matching.  
+**Output**: Entity matches with Wikidata IDs, labels, descriptions, types, and confidence scores.
 
 **How to use:**
 Write instructions describing how to match the values. The LLM will receive each cell value and return Wikidata entity information.
@@ -47,26 +47,26 @@ Prompt: `Match this location to a Wikidata entity. Return the entity ID, name, d
 
 An LLM-based Open Opportunities company house matching service. It uses a specialized hybrid search over a collection of European company data plus an LLM to reason about ambiguous or partial matches.
 
-**Input**: A column containing company name values (can be reconciled names or raw text).
-<br>**Output**: New columns such as: 
-- `company_official_name`
-- `company_number`
-- `company_address`
-- Additional columns with LLM-based reasoning explanations (e.g., `llm_match_reason`, `llm_confidence`) that describe why a match was selected and any normalization or assumptions applied
+**Input**: A column containing company name values (can be reconciled names or raw text).  
+**Output**: New columns such as:
+* `company_official_name`
+* `company_number`
+* `company_address`
+* Additional columns with LLM-based reasoning explanations (e.g., `llm_match_reason`, `llm_confidence`) that describe why a match was selected and any normalization or assumptions applied
 
 ---
 
 ## COFOG (LLM Classifier)
 
-A classification service that assigns a government department or public organization to the most  appropriate category among the ten top-level COFOG (Classification of the Functions of Government - For more  details, click [here](https://en.wikipedia.org/wiki/Classification_of_the_Functions_of_Government).) options.  The classification is based on the organization's name, description, country, and Wikidata metadata.
+A classification service that assigns a government department or public organization to the most  appropriate category among the ten top-level COFOG (Classification of the Functions of Government - For more  details, click <a href='https://en.wikipedia.org/wiki/Classification_of_the_Functions_of_Government'  target='_blank'>here</a>.) options.  The classification is based on the organization's name, description, country, and Wikidata metadata.
 
-**LLM model:** phi4-mini
+**LLM model:** ${process.env.LLM_MODEL || "phi4-mini"}
 
-**Input**: Organization details including name, description, country  and optional Wikidata fields such as description or type.
-<br>**Output**: New columns containing: 
-- Predicted COFOG category (`cofog_label: 01-10`). 
-- Confidence level (high/medium/low). 
-- Reasoning notes
+**Input**: Organization details including <em>name</em>, <em>description</em>, <em>country</em>  and optional <em>Wikidata fields</em> such as description or type.  
+**Output**: New columns containing:
+* Predicted COFOG category (`cofog_label: 01-10`).
+* Confidence level (high/medium/low).
+* Reasoning notes
 
 ---
 
@@ -74,18 +74,18 @@ A classification service that assigns a government department or public organiza
 
 A flexible LLM-powered extension service that generates new columns based on a custom prompt.  Use the LLM to intelligently enrich your data by creating additional attributes derived from existing column values.
 
-**LLM model:** phi4-mini
+**LLM model:** ${process.env.LLM_MODEL || "phi4-mini"}
 
-**Input**: Column values to extend and custom instructions describing how to extend them.
-<br>**Output**: New columns populated with LLM-generated content based on your specifications.
+**Input**: Column values to extend and custom instructions describing how to extend them.  
+**Output**: New columns populated with LLM-generated content based on your specifications.
 
 **How to use:**
 
-- Specify output column names (comma-separated, e.g., 'summary, category, sentiment').
-- Write instructions for what to do with the cell data. The LLM will receive both your instructions and the actual cell data.
-- For each column, specify what value should be returned.
+* Specify output column names (comma-separated, e.g., 'summary, category, sentiment').
+* Write instructions for what to do with the cell data. The LLM will receive both your instructions and the actual cell data.
+* For each column, specify what value should be returned.
 
-**Example:**
+ **Example:**
 Columns: `length, first_word, last_word`
 Prompt: `Count the characters and return as 'length'. Extract the first word as 'first_word' and the last word as 'last_word'.`
 
@@ -95,23 +95,23 @@ Prompt: `Count the characters and return as 'length'. Extract the first word as 
 
 A flexible LLM-powered modification service that transforms column values based on a custom prompt.  Use the LLM to intelligently clean, normalize, rewrite, anonymize, extract or restructure data.
 
-**LLM model:** gpt-4o-mini
+**LLM model:** ${process.env.LLM_MODEL || "gpt-4o-mini"}
 
-**Input**: Column values to modify, the operation to perform and custom instructions describing how to modify them.
-<br>**Output**: Updated column values, a new joined column, or multiple new columns generated by a split.
+**Input**: Column values to modify, the operation to perform and custom instructions describing how to modify them.  
+**Output**: Updated column values, a new joined column, or multiple new columns generated by a split.
 
 **How to use:**
 
-- Choose an operation type (Join / Split / Edit directly).
-- (Optional) Select additional columns for the join operation.
-- (Optional) Rename new generated columns for the join and split operation.
-- Write instructions describing how to modify the values. The LLM will receive each cell value and return output based on the operation type.
+* Choose an operation type (Join / Split / Edit directly).
+* (Optional) Select additional columns for the join operation.
+* (Optional) Rename new generated columns for the join and split operation.
+* Write instructions describing how to modify the values. The LLM will receive each cell value and return output based on the operation type.
 
-**Example propmts:**
+ **Example propmts:**
 
-- Join: `Merge first_name and last_name into a full name. Trim spaces and capitalize properly.`
-- Split: `From 'address' extract street, city, and postal_code. Return values exactly as: street | city | postal_code.`
-- Edit directly: `Standardize dates to ISO format (YYYY-MM-DD). If missing, return an empty string.`
+* Join: `Merge first_name and last_name into a full name. Trim spaces and capitalize properly.`
+* Split: `From 'address' extract street, city, and postal_code. Return values exactly as: street | city | postal_code.`
+* Edit directly: `Standardize dates to ISO format (YYYY-MM-DD). If missing, return an empty string.`
 
 ---
 
