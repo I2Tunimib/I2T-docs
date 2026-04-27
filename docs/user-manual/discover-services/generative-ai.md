@@ -11,9 +11,9 @@ Generative AI services leverage Large Language Models (LLMs) to perform complex 
 
 ## Custom (LLM Reconciler)
 
-A flexible LLM-powered reconciliation service that matches text values to entities based on a custom prompt.  Use the LLM to intelligently reconcile data to knowledge base entities with custom matching logic.
+A flexible LLM-powered reconciliation service that matches text values to entities based on a custom prompt. Use the LLM to intelligently reconcile data to knowledge base entities with custom matching logic.
 
-**LLM model:** $&#123;process.env.LLM_MODEL || "phi4-mini"&#125;
+**LLM model:**
 
 **Input**: Column values to reconcile and custom instructions for matching.  
 **Output**: Entity matches with IDs, labels, descriptions, types, and confidence scores.
@@ -28,9 +28,9 @@ Prompt: `Match this location to a Wikidata entity. Return the entity ID, name, d
 
 ## Custom Wikidata (LLM Reconciler)
 
-A flexible LLM-powered reconciliation service that matches text values to Wikidata entities based on a custom prompt.  Use the LLM to intelligently reconcile data to Wikidata knowledge base entities with custom matching logic.
+A flexible LLM-powered reconciliation service that matches text values to Wikidata entities based on a custom prompt. Use the LLM to intelligently reconcile data to Wikidata knowledge base entities with custom matching logic.
 
-**LLM model:** $&#123;process.env.LLM_MODEL || "phi4-mini"&#125;
+**LLM model:**
 
 **Input**: Column values to reconcile and custom instructions for matching.  
 **Output**: Entity matches with Wikidata IDs, labels, descriptions, types, and confidence scores.
@@ -58,11 +58,11 @@ An LLM-based Open Opportunities company house matching service. It uses a specia
 
 ## COFOG (LLM Classifier)
 
-A classification service that assigns a government department or public organization to the most  appropriate category among the ten top-level COFOG (Classification of the Functions of Government - For more  details, click <a href='https://en.wikipedia.org/wiki/Classification_of_the_Functions_of_Government'  target='_blank'>here</a>.) options.  The classification is based on the organization's name, description, country, and Wikidata metadata.
+A classification service that assigns a government department or public organization to the most appropriate category among the ten top-level COFOG (Classification of the Functions of Government - For more details, click <a href='https://en.wikipedia.org/wiki/Classification_of_the_Functions_of_Government' target='_blank'>here</a>.) options. The classification is based on the organization's name, description, country, and Wikidata metadata.
 
-**LLM model:** $&#123;process.env.LLM_MODEL || "phi4-mini"&#125;
+**LLM model:**
 
-**Input**: Organization details including <em>name</em>, <em>description</em>, <em>country</em>  and optional <em>Wikidata fields</em> such as description or type.  
+**Input**: Organization details including <em>name</em>, <em>description</em>, <em>country</em> and optional <em>Wikidata fields</em> such as description or type.  
 **Output**: New columns containing:
 * Predicted COFOG category (`cofog_label: 01-10`).
 * Confidence level (high/medium/low).
@@ -72,9 +72,9 @@ A classification service that assigns a government department or public organiza
 
 ## Custom (LLM Extender)
 
-A flexible LLM-powered extension service that generates new columns based on a custom prompt.  Use the LLM to intelligently enrich your data by creating additional attributes derived from existing column values.
+A flexible LLM-powered extension service that generates new columns based on a custom prompt. Use the LLM to intelligently enrich your data by creating additional attributes derived from existing column values.
 
-**LLM model:** $&#123;process.env.LLM_MODEL || "phi4-mini"&#125;
+**LLM model:**
 
 **Input**: Column values to extend and custom instructions describing how to extend them.  
 **Output**: New columns populated with LLM-generated content based on your specifications.
@@ -85,7 +85,7 @@ A flexible LLM-powered extension service that generates new columns based on a c
 * Write instructions for what to do with the cell data. The LLM will receive both your instructions and the actual cell data.
 * For each column, specify what value should be returned.
 
- **Example:**
+**Example:**
 Columns: `length, first_word, last_word`
 Prompt: `Count the characters and return as 'length'. Extract the first word as 'first_word' and the last word as 'last_word'.`
 
@@ -93,9 +93,9 @@ Prompt: `Count the characters and return as 'length'. Extract the first word as 
 
 ## Custom (LLM Modifier)
 
-A flexible LLM-powered modification service that transforms column values based on a custom prompt.  Use the LLM to intelligently clean, normalize, rewrite, anonymize, extract or restructure data.
+A flexible LLM-powered modification service that transforms column values based on a custom prompt. Use the LLM to intelligently clean, normalize, rewrite, anonymize, extract or restructure data.
 
-**LLM model:** $&#123;process.env.LLM_MODEL || "gpt-4o-mini"&#125;
+**LLM model:**
 
 **Input**: Column values to modify, the operation to perform and custom instructions describing how to modify them.  
 **Output**: Updated column values, a new joined column, or multiple new columns generated by a split.
@@ -107,7 +107,7 @@ A flexible LLM-powered modification service that transforms column values based 
 * (Optional) Rename new generated columns for the join and split operation.
 * Write instructions describing how to modify the values. The LLM will receive each cell value and return output based on the operation type.
 
- **Example propmts:**
+**Example propmts:**
 
 * Join: `Merge first_name and last_name into a full name. Trim spaces and capitalize properly.`
 * Split: `From 'address' extract street, city, and postal_code. Return values exactly as: street | city | postal_code.`
