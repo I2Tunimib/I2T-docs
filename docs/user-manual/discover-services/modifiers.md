@@ -33,8 +33,8 @@ A transformation function that allows users to apply regular expression operatio
 
 **Common Examples:**
 
-* **Extract numbers with up to 2 decimals:** Pattern: `\\d+\\.\\d{1,2}` (without anchors)
-* **Truncate to 2 decimals:** Operation: Replace, Pattern: `^(\\d+\\.\\d{2})\\d*$`, Replacement: `$1`
+* **Extract numbers with up to 2 decimals:** Pattern: `\\d+\\.\\d&#123;1,2&#125;` (without anchors)
+* **Truncate to 2 decimals:** Operation: Replace, Pattern: `^(\\d+\\.\\d&#123;2&#125;)\\d*$`, Replacement: `$1`
 * **Extract email addresses:** Pattern: `\\w+@\\w+\\.\\w+`
 * **Remove special characters:** Operation: Replace, Pattern: `[^a-zA-Z0-9\\s]`, Replacement: (empty)
 
