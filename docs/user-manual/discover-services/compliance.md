@@ -22,29 +22,21 @@ determines whether the dataset falls under the scope of GDPR.
 The possible table GDPR statuses include:
 
 * **noGDPR**: The table contains no personal data and is outside the scope of GDPR.
-
 * **yesGDPR**: The table contains identifiable personal data and is subject to GDPR requirements.
-
 * **pseudoGDPR**: The table contains pseudonymized data; GDPR still applies, but the risk is reduced.
 
 Column classifications:
 
 * **personalData**: Directly identifies an individual (e.g., name, email).
-
 * **quasiIdentifiers**: Could indirectly identify a person when combined with other data.
-
 * **nonPersonalData**: Organizational or contextual information.
-
 * **anonymousData**: Fully anonymized data.
 
 Suggested actions:
 
 * **noChange**: Data is already compliant.
-
 * **pseudonymize**: Replace identifying values with pseudonyms or hashes.
-
 * **generalize**: Reduce data specificity (e.g., exact dates to years).
-
 * **remove**: Delete the column if unnecessary for the specified purpose.
 
 ![Compliance GIF](/img/compliance.gif)
