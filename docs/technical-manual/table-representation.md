@@ -37,7 +37,7 @@ interface EntityMetadata = {
 ## Reconciliation
 
 ### Request
-The **req** object of a **requestTransformer** contains the original request from the client and *optionally* the processed request (see [External services aggregator](/backend/services-aggregator.md)):
+The **req** object of a **requestTransformer** contains the original request from the client and *optionally* the processed request:
 
 <Tabs>
 <TabItem value="original" label="Request (original)">
@@ -90,7 +90,7 @@ interface Item {
 ## Extension
 
 ### Request
-The **req** object of a **requestTransformer** contains the original request from the client and *optionally* the processed request (see [External services aggregator](/backend/services-aggregator.md)):
+The **req** object of a **requestTransformer** contains the original request from the client and *optionally* the processed request:
 
 <Tabs>
 <TabItem value="original" label="Request (original)">
@@ -158,7 +158,7 @@ interface Cell = {
 ## Modification
 
 ### Request
-The **req** object of a **requestTransformer** contains the original request from the client and *optionally* the processed request (see [External services aggregator](/backend/services-aggregator.md)):
+The **req** object of a **requestTransformer** contains the original request from the client and *optionally* the processed request:
 
 <Tabs>
 <TabItem value="original" label="Request (original)">

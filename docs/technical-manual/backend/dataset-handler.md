@@ -100,7 +100,7 @@ const COLLECTION_DATASETS_MAP = {
 
 :::info
 
-`Type` corresponds to a UI componenent. Check [here](/frontend/dashboard-components.md) how to add new UI component. If `type` is omitted the field is treated as text. The data fields included
+`Type` corresponds to a UI componenent. Check [here](../frontend/dashboard-components.md) how to add new UI component. If `type` is omitted the field is treated as text. The data fields included
 in the object will be displayed in the UI, meanwhile all others fields are left out of the visualization.
 
 :::
@@ -129,7 +129,7 @@ const COLLECTION_TABLES_MAP = {
 
 :::info
 
-`Type` corresponds to a UI componenent. Check [here](/frontend/dashboard-components.md)  how to add new UI component. If `type` is omitted the field is treated as text. The data fields included
+`Type` corresponds to a UI componenent. Check [here](../frontend/dashboard-components.md)  how to add new UI component. If `type` is omitted the field is treated as text. The data fields included
 in the object will be displayed in the UI, meanwhile all others fields are left out of the visualization.
 
 :::
