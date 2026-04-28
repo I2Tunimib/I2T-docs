@@ -118,16 +118,6 @@ const sidebars = {
                 'technical-manual/backend/adding-new-category/introduction',
               ],
             },
-            {
-              type: 'category',
-              label: 'Service Aggregator',
-              items: [
-                'technical-manual/backend/services-aggregator/extenders',
-                'technical-manual/backend/services-aggregator/modifiers',
-                'technical-manual/backend/services-aggregator/new-service',
-                'technical-manual/backend/services-aggregator/reconcilers',
-              ],
-            },
           ],
         },
         {
