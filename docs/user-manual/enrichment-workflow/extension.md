@@ -8,7 +8,7 @@ using columns that have already been reconciled. This step allows you to enrich 
 and properties, transforming simple labels into structured data.
 
 Simply select the reconciled column, click the `Extend` button in the Toolbar, and choose from the available extension
-services. _(Learn more about [Extenders](../introduction))_
+services. _(Learn more about [Extenders](../discover-services/extenders))_
 
 :::tip
 Watch this short clip (04:23-04:52) to see the Extension step in action:

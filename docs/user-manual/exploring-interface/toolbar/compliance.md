@@ -6,6 +6,7 @@ sidebar_position: 3
 This feature evaluates the current state of your table's compliance with different regulatory frameworks.
 Click on the `Compliance` button in the Toolbar and simply select one of the available compliance services. Currently, 
 the system supports GDPR assessment, allowing you to determine if your data processing aligns with European privacy standards.
+_(Learn more about [Compliance Services](../../discover-services/compliance))_
 
 :::info
 This is a long-running asynchronous process, allowing you to continue working on other tables while it runs.

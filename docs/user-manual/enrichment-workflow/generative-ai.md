@@ -11,7 +11,7 @@ To access these features, click the `Gen AI` button in the Sub-Toolbar. You can 
 - **Modification**: Transform, clean, or format existing cell values. 
 - **Reconciliation**: Link mentions to entities using AI-driven matching.
 - **Extension**: Generate entirely new columns by extracting or inferring information.
-_(Learn more about [Generative AI Services](../introduction))_
+_(Learn more about [Generative AI Services](../discover-services/generative-ai))_
 
 ![Generative AI image](/img/generative-ai.gif)
 

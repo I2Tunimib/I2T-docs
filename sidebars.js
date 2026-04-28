@@ -27,7 +27,7 @@ const sidebars = {
         'user-manual/starting-project',
         {
           type: 'category',
-          label: 'Exploring the interface',
+          label: 'Exploring the Interface',
           items: [
             {
               type: 'category',
@@ -70,6 +70,18 @@ const sidebars = {
             'user-manual/enrichment-workflow/matching-revision',
             'user-manual/enrichment-workflow/extension',
             'user-manual/enrichment-workflow/generative-ai',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Discover Services',
+          items: [
+            'user-manual/discover-services/modifiers',
+            'user-manual/discover-services/reconcilers',
+            'user-manual/discover-services/extenders',
+            'user-manual/discover-services/compliance',
+            'user-manual/discover-services/generative-ai',
+
           ],
         },
         'user-manual/known-bugs',

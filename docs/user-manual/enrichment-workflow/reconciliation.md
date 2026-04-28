@@ -13,7 +13,7 @@ knowledge source:
   - **Schema Annotation**: Automatically identifies the data kind and assigns a Named Entity Recognition classification to each column.
     _(Learn more about [Schema Annotation](../exploring-interface/toolbar/automatic-annotation#schema-annotation))_
 - **Service-based**: Allows for reconciling a specific column or cell by selecting from various available reconciliation services.
-  _(Learn more about [Reconcilers](../introduction))_
+  _(Learn more about [Reconcilers](../discover-services/reconcilers))_
 - **Manual**: You manually search for and assign a specific entity to a cell without using an automated service.
 
 ## Service-based Reconciliation

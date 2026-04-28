@@ -7,7 +7,7 @@ The Modification step allows you to prepare your data for reconciliation and ext
 functions to selected columns.
 
 Simply select one or more columns, click the `Modify` button in the SubToolbar, and choose from the available 
-transformation functions. _(Learn more about [Modifiers](../introduction))_
+transformation functions. _(Learn more about [Modifiers](../discover-services/modifiers))_
 
 :::tip
 Watch this short clip (02:34 - 03:02) to see the Modification step in action:

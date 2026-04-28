@@ -20,8 +20,8 @@ export default function Home() {
         <div style={{textAlign: 'center', margin: '2rem'}}>
           <p>
             And much more to discover in{' '}
-            <a href="/I2T-docs/docs/backend/architecture">
-              our documentation
+            <a href="/I2T-docs/technical-manual/introduction">
+              our Technical Manual
             </a>
           </p>
         </div>
