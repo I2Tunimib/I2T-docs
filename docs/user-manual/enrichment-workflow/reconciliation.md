@@ -53,11 +53,11 @@ The colors and shapes of the icons in front of reconciled entities provide visua
   </li>
   <li style={{ marginBottom: '10px' }}>
     <span style={{ backgroundColor: '#106b4a', width: '9px', height: '5px', borderRadius: '5px', display: 'inline-block', marginRight: '11px', verticalAlign: 'middle' }}></span>
-    <b>Successful reconciliation</b>: An entity has been assigned by the <b>column refinement feature</b>. <i>(Learn more about <Link to="./manual-revision#refinement">Group of Cells Refinement</Link>)</i>
+    <b>Successful reconciliation</b>: An entity has been assigned by the <b>column refinement feature</b>. <i>(Learn more about <Link to="./matching-revision#refinement">Group of Cells Refinement</Link>)</i>
   </li>
   <li style={{ marginBottom: '10px' }}>
     <span style={{ backgroundColor: '#30a077', width: '5px', height: '9px', borderRadius: '5px', display: 'inline-block', marginRight: '15px', verticalAlign: 'middle' }}></span>
-    <b>Successful reconciliation</b>: An entity has been <b>manually</b> assigned to the cell. <i>(Learn more about <Link to="./manual-revision#entity-matching-revision">Single Cell Entity Matching Revision</Link>)</i>
+    <b>Successful reconciliation</b>: An entity has been <b>manually</b> assigned to the cell. <i>(Learn more about <Link to="./matching-revision#entity-matching-revision">Single Cell Entity Matching Revision</Link>)</i>
   </li>
   <li style={{ marginBottom: '10px' }}>
     <span style={{ backgroundColor: '#ffc700', width: '10px', height: '10px', borderRadius: '50%', display: 'inline-block', marginRight: '10px', verticalAlign: 'middle' }}></span>
