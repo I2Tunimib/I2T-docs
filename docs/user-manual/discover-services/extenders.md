@@ -13,7 +13,7 @@ Services that add complementary data or attributes to existing resources.
 
 An extender that retrieves geographic properties from Wikidata for the entities in the selected reconciled column.
 
-**Input**: A <em>column reconciled against Wikidata</em>, with entities' ID in any supported format (e.g., `wd:Q42`), plus a <em>selection of geographic properties</em>:  
+**Input**: A _column reconciled against Wikidata_, with entities' ID in any supported format (e.g., `wd:Q42`), plus a _selection of geographic properties_:  
 * Coordinate location (latitude & longitude)
 * Time zone
 * Postal code
@@ -26,9 +26,9 @@ An extender that retrieves geographic properties from Wikidata for the entities 
 
 ## Geo Route (HERE)
 
-An extender that computes the route between the geographic points in the selected column <em>origin</em>and those in the selected <em>destination</em> column.
+An extender that computes the route between the geographic points in the selected column _origin_and those in the selected _destination_ column.
 
-**Input**: A <em>column reconciled with latitute and longitude</em>; another <em>column containing either geo coordinates</em> (e.g., `georss:52.51604,13.37691`) or text labels of <em>Points of Interest (POI)</em>, plus a <em>selection of properties</em>:  
+**Input**: A _column reconciled with latitute and longitude_; another _column containing either geo coordinates_ (e.g., `georss:52.51604,13.37691`) or text labels of _Points of Interest (POI)_, plus a _selection of properties_:  
 * Route duration in minute
 * Route length in km
 * Route path from origin to destination in polyline format
@@ -41,9 +41,9 @@ An extender that computes the route between the geographic points in the selecte
 
 ## Geo Route (OSRM)
 
-An extender that computes the route between the geographic points in the selected column <em>origin</em>and those in the selected <em>destination</em> column.
+An extender that computes the route between the geographic points in the selected column _origin_and those in the selected _destination_ column.
 
-**Input**: A <em>column reconciled with latitute and longitude</em>; another <em>column containing either geo coordinates</em> (e.g., `georss:52.51604,13.37691`) or text labels of <em>Points of Interest (POI)</em> already reconcilied with its coordinates, plus a <em>selection of properties</em>:  
+**Input**: A _column reconciled with latitute and longitude_; another _column containing either geo coordinates_ (e.g., `georss:52.51604,13.37691`) or text labels of _Points of Interest (POI)_ already reconcilied with its coordinates, plus a _selection of properties_:  
 * Route duration in minute
 * Route length in km
 * Route path from origin to destination in polyline format
@@ -54,11 +54,11 @@ An extender that computes the route between the geographic points in the selecte
 
 ## Meteo Properties (OpenMeteo)
 
-An extender that adds weather properties for the geographic points in the selected <em>reconclied column</em> (latitude, longitude) for a given date provided in another column.
+An extender that adds weather properties for the geographic points in the selected _reconclied column_ (latitude, longitude) for a given date provided in another column.
 
-**Input**: A <em>column reconciled with latitute and longitude</em> (e.g., `georss:52.51604,13.37691`); a second <em>column with dates</em> in ISO8601 format (`yyyy-MM-dd` or `yyyy-MM-dd'T'HH:mm`), plus a <em>selection of weather properties</em>, based on the <em>selected granularity</em>.  
+**Input**: A _column reconciled with latitute and longitude_ (e.g., `georss:52.51604,13.37691`); a second _column with dates_ in ISO8601 format (`yyyy-MM-dd` or `yyyy-MM-dd'T'HH:mm`), plus a _selection of weather properties_, based on the _selected granularity_.  
 
-<em>Daily parameters</em>, returning values aggregated per day:
+_Daily parameters_, returning values aggregated per day:
 * Number of seconds of daylight
 * Sun rise and set times UTC in ISO8601
 * Maximum daily temperature in °C
@@ -66,7 +66,7 @@ An extender that adds weather properties for the geographic points in the select
 * Sum of daily precipitation (including rain, showers and snowfall) in mm
 * Number of hours with rain
 
-<em>Hourly parameters</em>, returning values at a specific hour of a specific day:
+_Hourly parameters_, returning values at a specific hour of a specific day:
 * Temperature at 2 meters above ground in °C
 * Relative humidity at 2 meters above ground in %
 * Precipitation (rainsnow) in mm
@@ -79,18 +79,18 @@ An extender that adds weather properties for the geographic points in the select
 
 ## Annotation properties
 
-An extender that consolidates existing linking annotations by generating new column(s) containing <em>ID</em> and/or <em>name</em> values from the reconciled column.
+An extender that consolidates existing linking annotations by generating new column(s) containing _ID_ and/or _name_ values from the reconciled column.
 
-**Input**: A <em> reconciled column </em> against any dataset or knowledge graph; a <em> selection of the properties </em> to extract (ID in any supported format `prefix:id`, name as string).  
+**Input**: A _reconciled column_ against any dataset or knowledge graph; a _selection of the properties_ to extract (ID in any supported format `prefix:id`, name as string).  
 **Output**: One new column for each requested property, containing the extracted metadata from the reconciled entities.
 
 ---
 
 ## Annotation properties (Wikidata)
 
-An extender that extracts Wikidata metadata, such as <em>ID</em>, <em>URI</em>, <em>name</em>, <em>description</em>, from a reconciled column and populates them into new column(s).
+An extender that extracts Wikidata metadata, such as _ID_, _URI_, _name_, _description_, from a reconciled column and populates them into new column(s).
 
-**Input**: A <em>column reconciled against Wikidata</em>, plus a <em>selection of the properties</em>:  
+**Input**: A _column reconciled against Wikidata_, plus a _selection of the properties_:  
 * ID, in Wikidata format `wd:Q42`
 * URI, as full URL
 * Name, as string
@@ -104,7 +104,7 @@ An extender that extracts Wikidata metadata, such as <em>ID</em>, <em>URI</em>, 
 
 An extender that adds Wikidata properties for entities in the selected column.
 
-**Input**: A <em>reconciled column</em> with entities; plus a <em>list of Wikidata properties</em> to retrieve, separated by space (e.g., P625 P2044).  
+**Input**: A _reconciled column_ with entities; plus a _list of Wikidata properties_ to retrieve, separated by space (e.g., P625 P2044).  
 **Output**: A new column for each selected property, headed with the property\
 
 ---
@@ -113,7 +113,7 @@ An extender that adds Wikidata properties for entities in the selected column.
 
 An extender that executes SPARQL queries on Wikidata for the entities in the selected column.
 
-**Input**: A <em>reconciled column</em> with Wikidata entities; plus the variables and body of the SPARQL query. Specify the variables for the  
+**Input**: A _reconciled column_ with Wikidata entities; plus the variables and body of the SPARQL query. Specify the variables for the  
 * SELECT clause (e.g., `?elevation ?unit ?unitLabel`).
 * Body of the query (e.g., `?item wdt:P2044 ?elevation`).
 * ORDER BY and LIMIT clause (optionally).

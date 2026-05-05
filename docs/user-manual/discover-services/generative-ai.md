@@ -62,7 +62,7 @@ A classification service that assigns a government department or public organiza
 
 **LLM model:** phi4-mini
 
-**Input**: Organization details including <em>name</em>, <em>description</em>, <em>country</em> and optional <em>Wikidata fields</em> such as description or type.  
+**Input**: Organization details including _name_, _description_, _country_ and optional _Wikidata fields_ such as description or type.  
 **Output**: New columns containing:
 * Predicted COFOG category (`cofog_label: 01-10`).
 * Confidence level (high/medium/low).
