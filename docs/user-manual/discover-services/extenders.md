@@ -39,6 +39,19 @@ An extender that computes the route between the geographic points in the selecte
 
 ---
 
+## Geo Route (OSRM)
+
+An extender that computes the route between the geographic points in the selected column <em>origin</em>and those in the selected <em>destination</em> column.
+
+**Input**: A <em>column reconciled with latitute and longitude</em>; another <em>column containing either geo coordinates</em> (e.g., `georss:52.51604,13.37691`) or text labels of <em>Points of Interest (POI)</em> already reconcilied with its coordinates, plus a <em>selection of properties</em>:  
+* Route duration in minute
+* Route length in km
+* Route path from origin to destination in polyline format
+
+**Output**: A new column for each selected route property.
+
+---
+
 ## Meteo Properties (OpenMeteo)
 
 An extender that adds weather properties for the geographic points in the selected <em>reconclied column</em> (latitude, longitude) for a given date provided in another column.
