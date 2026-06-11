@@ -105,7 +105,9 @@ An extender that extracts Wikidata metadata, such as _ID_, _URI_, _name_, _descr
 An extender that adds Wikidata properties for entities in the selected column.
 
 **Input**: A _reconciled column_ with entities; plus a _list of Wikidata properties_ to retrieve, separated by space (e.g., P625 P2044).  
-**Output**: A new column for each selected property, headed with the property\
+**Output**: A new column for each selected property, headed with the property's official Wikidata label, containing the corresponding value(s) for each entity.
+
+**Notes**: Some properties may be missing for certain entities in Wikidata. The Suggest button can be used to retrieve a list of available properties along with their frequencies.
 
 ---
 
