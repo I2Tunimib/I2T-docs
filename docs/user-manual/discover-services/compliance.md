@@ -39,7 +39,21 @@ Suggested actions:
 * **generalize**: Reduce data specificity (e.g., exact dates to years).
 * **remove**: Delete the column if unnecessary for the specified purpose.
 
-![Compliance GIF](/img/compliance.gif)
+:::tip
+  Watch this short video to see the GDPR Compliance Check in action:
+
+  <div style={{textAlign: 'center', margin: '1.5rem 0'}}>
+    <iframe
+      width="100%"
+      style={{aspectRatio: '16/9', maxWidth: '600px'}}
+      src="https://www.youtube.com/embed/ZqcuemO53bA"
+      title="SemT-X Starting a Project"
+      frameBorder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen>
+    </iframe>
+  </div>
+:::
 
 ---
 
