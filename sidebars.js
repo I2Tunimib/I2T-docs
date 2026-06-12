@@ -65,6 +65,7 @@ const sidebars = {
           type: "category",
           label: "Enrichment Workflow",
           items: [
+            "user-manual/enrichment-workflow/manual-schema-annotation",
             "user-manual/enrichment-workflow/modification",
             "user-manual/enrichment-workflow/reconciliation",
             "user-manual/enrichment-workflow/matching-revision",
