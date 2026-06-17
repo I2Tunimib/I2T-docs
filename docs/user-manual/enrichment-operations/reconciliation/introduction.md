@@ -10,7 +10,7 @@ knowledge source:
 - **Automatic with Semantic Table Interpretation**: Automatically reconciles all cells and provides semantic annotations for column headers.
     _(Learn more about [Semantic Table Interpretation](./automatic-reconciliation))_
 - **Service-based**: Allows for reconciling a specific column or cell by selecting from various available reconciliation services.
-  _(Learn more about [Reconcilers](../discover-services/reconcilers))_
+  _(Learn more about [Reconcilers](../../discover-services/reconcilers))_
 - **Manual**: You manually search for and assign a specific entity to a cell without using an automated service.
   _(Learn more about [Manual Reconciliation](./manual-reconciliation))_
 

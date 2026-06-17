@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Service-based Reconciliation
 Select a column or a set of cells and click the `Reconcile` button in the Toolbar. This allows you to choose a service
-group and a specific service to match cell labels (mentions) against a Knowledge Graph.
+group and a specific service to match cell labels (mentions) against a Knowledge Graph. _(Learn more about [Reconcilers](../../discover-services/reconcilers))_
 
 :::tip
 Watch this short clip (03:03 - 03:57) to see the Service-based Reconciliation step in action:
