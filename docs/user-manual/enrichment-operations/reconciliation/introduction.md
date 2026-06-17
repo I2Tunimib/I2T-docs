@@ -1,47 +1,18 @@
 ---
-sidebar_position: 3
+sidebar_position: 1
 ---
 import Link from '@docusaurus/Link';
 
-# Reconciliation
+# Introduction
 The Reconciliation step is the process of matching entities in your original data with entities in external datasets. 
 It provides access to both manual and automatic services to link cell labels (mentions) to entities in an external 
 knowledge source:
-- **Automatic**: It can be performed at two different levels:
-  - **Full Table with Semantic Table Interpretation**: Automatically reconciles all cells and provides semantic annotations for column headers.
-    _(Learn more about [Semantic Table Interpretation](../exploring-interface/toolbar/automatic-annotation#semantic-table-interpretation))_
-  - **Schema Annotation**: Automatically identifies the data kind and assigns a Named Entity Recognition classification to each column.
-    _(Learn more about [Schema Annotation](../exploring-interface/toolbar/automatic-annotation#schema-annotation))_
+- **Automatic with Semantic Table Interpretation**: Automatically reconciles all cells and provides semantic annotations for column headers.
+    _(Learn more about [Semantic Table Interpretation](./automatic-reconciliation))_
 - **Service-based**: Allows for reconciling a specific column or cell by selecting from various available reconciliation services.
   _(Learn more about [Reconcilers](../discover-services/reconcilers))_
 - **Manual**: You manually search for and assign a specific entity to a cell without using an automated service.
-
-## Service-based Reconciliation
-Select a column or a set of cells and click the `Reconcile` button in the Toolbar. This allows you to choose a service
-group and a specific service to match cell labels (mentions) against a Knowledge Graph.
-
-:::tip
-Watch this short clip (03:03 - 03:57) to see the Service-based Reconciliation step in action:
-
-<div style={{textAlign: 'center', margin: '1.5rem 0'}}>
-  <iframe 
-    width="100%" 
-    style={{aspectRatio: '16/9', maxWidth: '600px'}}
-    src="https://www.youtube.com/embed/vl11KucxCT0?start=183&end=237" 
-    title="SemT-X Reconciliation" 
-    frameBorder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-    allowFullScreen>
-  </iframe>
-</div>
-:::
-
-## Manual Reconciliation
-If entity IDs for specific cells are known, you can manually reconcile them by simply clicking the <img src={require('@site/static/img/manage-metadata-button.png').default} width="28" style={{verticalAlign: 'middle'}} /> icon of a cell.
-Choose the knowledge source prefix you want to use, fill in the required fields, and add the entity. You can then
-persist this match across the table by clicking the `Confirm and Propagate` button.
-
-![Manual Reconciliation image](/img/manual-reconciliation.gif)
+  _(Learn more about [Manual Reconciliation](./manual-reconciliation))_
 
 ## Annotation Symbols
 The colors and shapes of the icons in front of reconciled entities provide visual feedback on the outcome of the reconciliation process:

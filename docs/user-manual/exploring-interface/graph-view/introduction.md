@@ -3,7 +3,7 @@ sidebar_position: 1
 ---
 
 # Introduction
-The Graph Visualization allows you to explore the semantic structure of a dataset as an interactive graph.
+The Graph View allows you to explore the semantic structure of a dataset as an interactive graph.
 In this view mode, **nodes** represent table columns, while **links** illustrate the relationships and mappings between them.
 
 The interface is divided into two main sections:

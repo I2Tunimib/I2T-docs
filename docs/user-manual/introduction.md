@@ -9,7 +9,7 @@ It provides an intuitive interface (SemT-UI) to explore tables, manage annotatio
 
 In this user manual, you will find a comprehensive overview of SemT-UI’s components and the core workflow designed to enhance your data.
 
-## Enrichment Workflow
+## Enrichment Operations
 The framework guides you through a structured process to turn raw data into high-quality semantic assets:
 - **Modification**: Prepare your data by applying transformation functions—such as Date Formatter or Data Cleaning—to ensure consistency before enrichment. 
 - **Reconciliation**: Link your mentions to entities in external Knowledge Bases (e.g., Wikidata or GeoNames). This can be done automatically for the full table or service-based selection or manually. 

@@ -21,7 +21,7 @@ to filter rows based on their reconciliation status:
   </li>
 </ul>
 
-_(Learn more about [Annotation Symbols](../../enrichment-workflow/reconciliation#annotation-symbols))_
+_(Learn more about [Annotation Symbols](../../enrichment-operations/reconciliation#annotation-symbols))_
 
 Additionally, toggle column visibility using the <img src={require('@site/static/img/visibility.png').default} width="24" style={{verticalAlign: 'middle'}} /> 
 icon. This dynamic list updates automatically as columns are added or removed, allowing you to hide auxiliary metadata

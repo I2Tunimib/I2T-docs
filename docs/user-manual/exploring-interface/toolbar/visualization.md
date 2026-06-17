@@ -8,7 +8,7 @@ The available modes include:
 
 1. **Table view**: The default mode, which displays data in a structured tabular format. From here, you can directly
    interact with cells, rows, and columns to apply filters, manage annotations, and perform enrichment
-   operations. _(Learn more about [Table Viewer](../table-viewer/introduction))_
+   operations. _(Learn more about [Table View](../table-view/introduction))_
    ![Table view image](/img/table-view.png)
 
 2. **Raw view**: This mode exposes the underlying JSON representation of the table, including both column definitions
@@ -23,5 +23,5 @@ The available modes include:
 
 3. **Graph view**: This view maps the table as an interactive graph, where nodes represent columns and links show their
    semantic relationships. It simplifies exploring the dataset's structure and helps you understand how
-   different columns are connected. _(Learn more about [Graph Visualization](../graph-visualization/introduction))_ 
+   different columns are connected. _(Learn more about [Graph View](../graph-view/introduction))_ 
    ![Graph view image](/img/graph-view.png) 
