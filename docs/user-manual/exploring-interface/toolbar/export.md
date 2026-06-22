@@ -5,6 +5,7 @@ sidebar_position: 5
 # Export
 SemT-UI allows you to export your data or workflows in various formats tailored to your needs.
 The available export options include:
+- **Schema**: Saves the data in standard formats such as _JSON_, or generates a _HTML or Markdown Report_.
 - **Table**: Saves the data in standard formats such as _CSV_, _JSON (W3C Compliant)_ and _RDF_.
    - For _CSV_, you can customize the delimiter, quote character, decimal separator, and choose whether to include the header. 
    - For _RDF_, you can specify the serialization format, @base URI, filtering threshold, and match value.
