@@ -123,6 +123,7 @@ const sidebars = {
               type: "category",
               label: "Api Specification",
               items: [
+                "technical-manual/backend/api-specifications/routes-overview",
                 "technical-manual/backend/api-specifications/save-get-table",
               ],
             },
