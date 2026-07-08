@@ -104,10 +104,8 @@ IF table visibility = "private"
 | Method | Path | Action | Auth |
 |---|---|---|---|
 | `POST` | `/dataset/:id/acl/visibility` | Set dataset visibility | Owner only |
-| `POST` | `/dataset/:id/acl/viewers` | Add viewer to dataset | Owner only |
-| `DELETE` | `/dataset/:id/acl/viewers` | Remove viewer from dataset | Owner only |
-| `POST` | `/dataset/:id/acl/editors` | Add editor to dataset | Owner only |
-| `DELETE` | `/dataset/:id/acl/editors` | Remove editor from dataset | Owner only |
+| `POST` | `/dataset/:id/acl` | Add viewer/editor to dataset (`role` in body) | Owner only |
+| `DELETE` | `/dataset/:id/acl` | Remove viewer/editor from dataset (`role` in body) | Owner only |
 
 ### Table ACL
 
@@ -115,10 +113,8 @@ IF table visibility = "private"
 |---|---|---|---|
 | `GET` | `/dataset/:id/table/:tid/acl` | Fetch table ACL (with dataset owner info) | View access required |
 | `POST` | `/dataset/:id/table/:tid/acl/visibility` | Set table visibility | Owner only |
-| `POST` | `/dataset/:id/table/:tid/acl/viewers` | Add viewer to table | Owner only |
-| `DELETE` | `/dataset/:id/table/:tid/acl/viewers` | Remove viewer from table | Owner only |
-| `POST` | `/dataset/:id/table/:tid/acl/editors` | Add editor to table | Owner only |
-| `DELETE` | `/dataset/:id/table/:tid/acl/editors` | Remove editor from table | Owner only |
+| `POST` | `/dataset/:id/table/:tid/acl` | Add viewer/editor to table (`role` in body) | Owner only |
+| `DELETE` | `/dataset/:id/table/:tid/acl` | Remove viewer/editor from table (`role` in body) | Owner only |
 
 ---
 

@@ -59,9 +59,8 @@ All routes are served under the `/api` prefix (e.g. `GET /api/config`).
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| GET | `/api/dataset/:idDataset/table/:idTable/export` | Export a table (format via query param) |
+| GET | `/api/dataset/:idDataset/table/:idTable/export` | Export a table (format via query param: w3c, rdf, csv, raw, report_md, python, notebook) |
 | POST | `/api/dataset/:idDataset/table/:idTable/export` | Export a table (format/options via body) |
-| GET | `/api/dataset/:idDataset/table/:idTable/code` | Export a table as executable code (Python / notebook) |
 
 ### Compliance
 
@@ -104,10 +103,8 @@ The response format is controlled by the `format` query parameter:
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| POST | `/api/dataset/:idDataset/acl/viewers` | Add a viewer to a dataset |
-| DELETE | `/api/dataset/:idDataset/acl/viewers` | Remove a viewer from a dataset |
-| POST | `/api/dataset/:idDataset/acl/editors` | Add an editor to a dataset |
-| DELETE | `/api/dataset/:idDataset/acl/editors` | Remove an editor from a dataset |
+| POST | `/api/dataset/:idDataset/acl` | Add a viewer/editor to a dataset (`role` in body) |
+| DELETE | `/api/dataset/:idDataset/acl` | Remove a viewer/editor from a dataset (`role` in body) |
 | POST | `/api/dataset/:idDataset/acl/visibility` | Set dataset visibility (`public` / `private`) |
 
 ### Table ACL
@@ -115,17 +112,15 @@ The response format is controlled by the `format` query parameter:
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | GET | `/api/dataset/:idDataset/table/:idTable/acl` | Get a table's ACL |
-| POST | `/api/dataset/:idDataset/table/:idTable/acl/viewers` | Add a viewer to a table |
-| DELETE | `/api/dataset/:idDataset/table/:idTable/acl/viewers` | Remove a viewer from a table |
-| POST | `/api/dataset/:idDataset/table/:idTable/acl/editors` | Add an editor to a table |
-| DELETE | `/api/dataset/:idDataset/table/:idTable/acl/editors` | Remove an editor from a table |
+| POST | `/api/dataset/:idDataset/table/:idTable/acl` | Add a viewer/editor to a table (`role` in body) |
+| DELETE | `/api/dataset/:idDataset/table/:idTable/acl` | Remove a viewer/editor from a table (`role` in body) |
 | POST | `/api/dataset/:idDataset/table/:idTable/acl/visibility` | Set table visibility |
 
 ---
 
 ## Reconcilers
 
-The reconciliation routes are mounted under **both** `/api/reconcilers` and `/api/full-annotation` (the latter is used for full-table automatic annotation flows).
+The reconciliation routes are mounted under `/api/reconcilers`.
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
