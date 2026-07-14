@@ -2,6 +2,7 @@ services:
   i2t-docs-mcp:
     build: .
     image: i2t-docs-mcp:latest
+    pull_policy: build
     container_name: i2t-docs-mcp
     restart: unless-stopped
     env_file:
@@ -10,10 +11,12 @@ services:
       MCP_ROOT: /data
       PORT: 3000
     volumes:
-      # Host-side checkout of the docs repo, mounted read-only. This is the
-      # main isolation boundary: even if a bug added a write tool, the mount
-      # itself refuses writes at the kernel level.
-      - ${REPO_PATH:-/srv/i2t-docs-repo}:/data:ro
+      # Only the docs/ content, mounted read-only — not the whole repo
+      # (no .git, node_modules, build output). Relative paths are resolved
+      # against this compose file's directory, so the default just works
+      # against a normal checkout. Override REPO_PATH to point elsewhere
+      # (e.g. a dedicated synced checkout in production).
+      - ${REPO_PATH:-../docs}:/data:ro
     ports:
       # Bind to loopback only — Caddy (running on the host) reverse-proxies
       # to this port; it's never reachable directly from the network.
