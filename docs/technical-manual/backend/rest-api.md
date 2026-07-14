@@ -40,7 +40,6 @@ Here is presented a list of all endpoints which are available at the moment of w
 | /reconciliators/asia/wikifier                             | POST   | Reconciliate data with asia wikifier                                                                   |
 | /reconciliators/wikidata                                  | POST   | Reconciliate data with wikidata open refine                                                            |
 | /modifiers/list                                           | GET    | Get a list of all available modifiers functions                                                                  |
-| /full-annotation/mantis/dataset/:idDataset/table/:idTable | POST   | Annotation of a full table with Mantis service                                                         |
 | /dataset                                                  | GET    | List of all datasets                                                                                   |
 | /dataset/:idDataset                                       | GET    | Return a dataset by its ID                                                                             |
 | /dataset/:idDataset/table                                 | GET    | Return all tables of a dataset                                                                         |

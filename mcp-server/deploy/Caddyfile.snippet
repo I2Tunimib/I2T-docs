@@ -1,0 +1,26 @@
+# Add this block inside your existing site definition, alongside the
+# /here and /alligator blocks:
+#
+# http://vm.chronos.disco.unimib.it:3004 {
+#     handle_path /here/* {
+#         reverse_proxy 127.0.0.1:3005
+#     }
+#     handle_path /alligator/* {
+#         reverse_proxy 127.0.0.1:8000
+#     }
+#     handle_path /i2t-docs-mcp/* {
+#         @denied not header Authorization "Bearer REPLACE_WITH_YOUR_TOKEN"
+#         respond @denied 401
+#
+#         reverse_proxy 127.0.0.1:3000
+#     }
+# }
+#
+# handle_path strips the /i2t-docs-mcp prefix before forwarding, so a client
+# request to http://vm.chronos.disco.unimib.it:3004/i2t-docs-mcp/mcp reaches
+# the container as POST /mcp — matching what index.js registers.
+#
+# REPLACE_WITH_YOUR_TOKEN must be the exact same string as MCP_TOKEN in
+# mcp-server/.env (generate both from one `openssl rand -hex 32`, paste the
+# same value in both places). Since this Caddyfile is plain text, restrict
+# its file permissions like any other secret.
