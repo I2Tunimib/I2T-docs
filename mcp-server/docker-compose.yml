@@ -1,0 +1,25 @@
+services:
+  i2t-docs-mcp:
+    build: .
+    image: i2t-docs-mcp:latest
+    container_name: i2t-docs-mcp
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      MCP_ROOT: /data
+      PORT: 3000
+    volumes:
+      # Host-side checkout of the docs repo, mounted read-only. This is the
+      # main isolation boundary: even if a bug added a write tool, the mount
+      # itself refuses writes at the kernel level.
+      - ${REPO_PATH:-/srv/i2t-docs-repo}:/data:ro
+    ports:
+      # Bind to loopback only — Caddy (running on the host) reverse-proxies
+      # to this port; it's never reachable directly from the network.
+      - "127.0.0.1:3000:3000"
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
