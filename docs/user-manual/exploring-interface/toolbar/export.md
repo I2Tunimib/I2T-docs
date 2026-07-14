@@ -5,18 +5,19 @@ sidebar_position: 5
 # Export
 SemT-UI allows you to export your data or workflows in various formats tailored to your needs.
 The available export options include:
-- **Schema**: Saves the data in standard formats such as _JSON_, or generates a _HTML or Markdown Report_.
+- **Schema**: Saves the header data in standard formats such as _JSON_, or generates a _HTML or Markdown Report_.
 - **Table**: Saves the data in standard formats such as _CSV_, _JSON (W3C Compliant)_ and _RDF_.
    - For _CSV_, you can customize the delimiter, quote character, decimal separator, and choose whether to include the header. 
    - For _RDF_, you can specify the serialization format, @base URI, filtering threshold, and match value.
 - **Pipeline**: Generates a _Python script_ or a _Jupyter Notebook_ that represents your current table workflow.
 
-:::info
+:::info NOTE
 Pipelines require all changes to be saved to the server before they can be exported.
 :::
 
 Once you have configured and confirmed the parameters, the file will be automatically downloaded.
 
+## Enrichment Pipeline Generation
 :::tip
 Watch this short video to see the Enrichment Pipeline Generation in action:
 

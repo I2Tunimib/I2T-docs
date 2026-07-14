@@ -27,7 +27,7 @@ When working with literal datatypes, SemT-X provides tailored tools to handle fo
 - **XML Schema (for STRING/DATE):** Aligns data validation with standard XML Schema structures. For more details, click 
   <a href='https://www.w3.org/TR/xmlschema-2/' target='_blank'>here</a>.
 
-:::note
+:::info NOTE
   Column types are automatically added during a reconciliation or extension step. In this case, based on the property 
   extracted, some information are automatically defined, such as column types and cell metadata are automatically added.
 :::
@@ -47,7 +47,7 @@ Manually adding properties links columns together by defining the following **se
   the property will be automatically created and added to that corresponding _Subject_ column.
 :::
 
-:::note
+:::info NOTE
   Column properties are automatically added when providing support columns as context during the reconciliation step, and
   also, during the extension step, when extracting additional information.
 :::

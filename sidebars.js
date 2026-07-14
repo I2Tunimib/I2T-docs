@@ -25,6 +25,7 @@ const sidebars = {
         "user-manual/resources",
         "user-manual/running",
         "user-manual/starting-project",
+        "user-manual/access-control",
         {
           type: "category",
           label: "Exploring the Interface",
@@ -46,6 +47,7 @@ const sidebars = {
                 "user-manual/exploring-interface/table-view/introduction",
                 "user-manual/exploring-interface/table-view/search-navigation",
                 "user-manual/exploring-interface/table-view/filtering-visibility",
+                "user-manual/exploring-interface/table-view/pipeline",
                 "user-manual/exploring-interface/table-view/column-header",
               ],
             },

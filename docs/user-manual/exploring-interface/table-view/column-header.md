@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 # Column Header
@@ -26,3 +26,4 @@ Column headers also show the following data:
 - **Reconciliation service name**: The source used for entity matching.
 - **Reconciliation status**: Indicates whether they were fully, partially, or not reconciled.
 - **Compliance check status**: Indicates whether the column is compliant with privacy standards or legal regulations.
+- **Compliance classification**: Indicates the nature of the data from a privacy and compliance perspective.

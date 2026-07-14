@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 # Known bugs
@@ -14,4 +14,4 @@ sidebar_position: 5
 # Improvements
 - Disable the expand header function for the unreconciled cells.
 - In the Refine Matching dialog the candidate reconcile options are showed sorted by score in ascending order instead of descending order.
-- In the Refine Maching dialog add the possibility to search the different types with a search field. 
+- In the Refine Matching dialog add the possibility to search the different types with a search field. 

@@ -48,3 +48,11 @@ distinguish between result types, each item is marked with a specific label on t
 ## Entering the Workspace
 After the upload is processed, your table will appear in the list within its dataset. Clicking on the table name
 will open the Table Viewer, where you can begin the semantic enrichment process.
+
+## Reviewing Tables
+Once your data is uploaded, you can quickly review the status of your tables directly from the dashboard using the
+quick action buttons located next to each table name (visible on hover):
+- **Compliance Report**: Opens a window to view the latest compliance check (e.g., GDPR). _(Learn more about [Compliance Check](../../enrichment-operations/compliance.md))_
+- **Schema Graph**: Displays a visual representation of the table schema. _(Learn more about [Graph View](../graph-view/introduction))_
+- **Pipeline**: Opens the operation control panel. You can inspect these operations either in a sequential list or in a tree
+  view, which illustrates the logical dependencies and helps you trace the enrichment workflow.

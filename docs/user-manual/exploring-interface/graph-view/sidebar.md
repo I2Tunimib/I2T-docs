@@ -25,6 +25,12 @@ This fixed section displays general information about the entire graph:
   </div>
 </div>
 
+## Compliance Summary
+When compliance is enabled, this section provides an overview of the dataset's privacy status:
+- **Status**: Indicates whether the data is "GDPR compliant" or not, only if a compliance check has been performed.
+- **Confidence score**: A percentage reflecting the reliability of the classification.
+- **Reasoning**: A detailed explanation of the findings, including which data types (e.g., personal, quasi-identifiers) were detected and why.
+
 ## Selected Node/Link Details
 The second part of the Sidebar is dynamic and updates according to the element selected in the graph. After selecting an
 element, this section can be collapsed using the `-` button, allowing you to hide the details and focus on the graph
@@ -32,11 +38,13 @@ general information when needed.
 
 When an element is selected, the Sidebar shows contextual information:
 - **Selected Node**: Displays semantic details about the node, including:
+  - **Compliance info**: Summarizes the data classification and its compliance status along with the confidence score.
+    Only visible when `Show compliance` button is active. If no check has been performed, the status is marked as _"Not performed"_.
   - **Kind and role**: Describes its function in the graph.
   - **Types**: Represents its semantic classification.
   - **Incoming and outgoing connections**: Describes how the node is related to others in the graph.
 - **Selected Link**: Displays information about the relationship between two nodes, including:
-  - **Metadata Property**: Defines the relationship.
+  - **Metadata**: Defines the relationship. When multiple properties link the two elements, a list of all the properties IDs is provided.
   - **Source and Target types**: Lists the associated types for each endpoint. <br />
     `Show types` expands all associated types to inspect their semantic meaning.
 

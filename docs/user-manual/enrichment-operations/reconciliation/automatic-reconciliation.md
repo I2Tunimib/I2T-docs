@@ -6,7 +6,7 @@ sidebar_position: 2
 Click on the `Automatic Annotation` button in the Toolbar. Then, select **Full table** as target and **Semantic Table 
 Interpretation (Alligator)** as the method.
 
-:::info
+:::info NOTE
 This is a long-running asynchronous process, allowing you to continue working on other tables while it runs.
 :::
 
