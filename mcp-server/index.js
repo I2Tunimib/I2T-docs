@@ -6,13 +6,7 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 
 const ROOT_DIR = path.resolve(process.env.MCP_ROOT ?? "/data");
-const MCP_TOKEN = process.env.MCP_TOKEN;
 const PORT = Number(process.env.PORT ?? 3000);
-
-if (!MCP_TOKEN) {
-  console.error("MCP_TOKEN env var is required");
-  process.exit(1);
-}
 
 // Resolves a repo-relative path and rejects anything that escapes ROOT_DIR
 // (symlink targets included), so path traversal can't reach the host fs.
@@ -107,13 +101,6 @@ function buildServer() {
 
 const app = express();
 app.use(express.json());
-
-app.use((req, res, next) => {
-  if (req.headers["authorization"] !== `Bearer ${MCP_TOKEN}`) {
-    return res.status(401).json({ error: "unauthorized" });
-  }
-  next();
-});
 
 // Stateless mode: a fresh server+transport per request, so there's no
 // session state to leak or clean up between callers.
