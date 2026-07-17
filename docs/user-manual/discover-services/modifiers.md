@@ -67,12 +67,6 @@ A transformation function that allows users to apply regular expression operatio
 
 ---
 
-## Text Annotation: NER (GateNLP)
-
-Annotates long-text cells with named entity spans using a GateNLP-based annotator. Returns W3C _TextPositionSelector_ annotations (character offsets) for each entity mention found in the cell text, stored under the `annotations` field in W3C compliant format.
-
----
-
 ## Text to columns / Columns to text
 
 A transformation function that allows joining multiple columns into one or splitting a single column into multiple columns using a separator defined by the user or by extracting the first or last portion of the cell value.

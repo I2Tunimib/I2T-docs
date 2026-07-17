@@ -64,6 +64,12 @@ A reconciliation service using LionLinker for table annotation, linking mentions
 
 ---
 
+## Text Annotation: NER (GateNLP)
+
+Annotates text cells with named entity spans using a GateNLP-based annotator. Returns W3C _TextPositionSelector_ annotations (character offsets) for each entity mention found in the cell text, and links entities to Wikidata candidates.
+
+---
+
 ## Linking: Wikidata (Alligator)
 
 A general purpose reconciliation service using Alligator to match mentions to Wikidata entities. It enriches _body cells_ (mentions) with Wikidata IDs, labels, descriptions, and types, and enriches _header cells_ (schema) with types and properties.
