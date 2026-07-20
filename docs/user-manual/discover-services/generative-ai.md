@@ -105,9 +105,9 @@ A flexible LLM-powered modification service that transforms column values based 
 * Choose an operation type (Join / Split / Edit directly).
 * (Optional) Select additional columns for the join operation.
 * (Optional) Rename new generated columns for the join and split operation.
-* Write instructions describing how to modify the values. The LLM will receive each cell value and return output based on the operation type.
+* Write instructions on how to modify the values. The LLM will receive each cell value and return output based on the operation type.
 
-**Example propmts:**
+**Example prompts:**
 
 * Join: `Merge first_name and last_name into a full name. Trim spaces and capitalize properly.`
 * Split: `From 'address' extract street, city, and postal_code. Return values exactly as: street | city | postal_code.`
