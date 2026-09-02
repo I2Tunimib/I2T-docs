@@ -25,7 +25,7 @@ const sidebars = {
         "user-manual/resources",
         "user-manual/running",
         "user-manual/starting-project",
-        "user-manual/access-control",
+        "user-manual/managing-permissions",
         {
           type: "category",
           label: "Exploring the Interface",

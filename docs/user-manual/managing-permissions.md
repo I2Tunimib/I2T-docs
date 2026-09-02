@@ -15,7 +15,12 @@ This allows you to:
 - Share a **private dataset** with different access levels across **different tables**
 - Grant **read-only access** (viewers) separately from **edit access** (editors)
 
----
+<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', margin: '20px 0' }}>
+  <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', alignItems: 'flex-start' }}>
+    <img src={require('@site/static/img/dataset-control.png').default} style={{ width: '45%', maxWidth: '400px', height: 'auto', border: '1px solid #eaeaea', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)' }} />
+    <img src={require('@site/static/img/table-control.png').default} style={{ width: '45%', maxWidth: '400px', height: 'auto', border: '1px solid #eaeaea', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)' }} />
+  </div>
+</div>
 
 ## Understanding Roles
 
@@ -29,8 +34,6 @@ This allows you to:
 
 - **Only users with the system role `editor` or `admin` can be assigned as an Editor**. Viewers have no system role requirement.
 - **Only the dataset owner can manage permissions** for both the dataset and its tables.
-
----
 
 ## Dataset-Level Permissions
 
@@ -53,9 +56,9 @@ Each dataset has a **visibility** setting and explicit **viewer** and **editor**
    - **Add editors**: Search for users (must have `editor` or `admin` role) and add them as editors (can view and edit)
    - **Remove viewers/editors**: Use the delete icon next to each user's name
 
-> **Note:** Making a dataset **Public** allows any authenticated user to view and edit it. Only make it public if you intend that level of access.
-
----
+:::info NOTE
+Making a dataset **Public** allows any authenticated user to view and edit it. Only make it public if you intend that level of access.
+:::
 
 ## Table-Level Permissions
 
@@ -83,9 +86,9 @@ Each table inside a dataset can have its own visibility setting. This allows you
    - **Add editors** (if private): Add users with `editor` or `admin` role who can edit the table
    - **Remove viewers/editors**: Use the delete icon next to each user's name
 
-> **Note:** When you change the visibility from `Private` to `Inherit`, any explicitly added viewers and editors are cleared (since the dataset's permissions apply instead).
-
----
+:::info NOTE
+When you change the visibility from `Private` to `Inherit`, any explicitly added viewers and editors are cleared (since the dataset's permissions apply instead).
+:::
 
 ## The "Most Restrictive Wins" Rule
 
@@ -115,8 +118,6 @@ The effective permission for accessing a table is the **logical AND** of the dat
   - Alice can view but NOT edit the table (she's a dataset viewer, not an editor, so the more restrictive dataset-level permission applies) ❌
   - Bob can view and edit (he's a dataset editor and table editor) ✅
 
----
-
 ## Typical Use Cases
 
 ### Scenario 1: Team Project with Mixed Access
@@ -145,16 +146,12 @@ The effective permission for accessing a table is the **logical AND** of the dat
 
 **Result:** Users can review the data but cannot make any edits. The owner controls all changes.
 
----
-
 ## What Happens When You Lack Permission
 
 - **No dataset access**: The dataset doesn't appear in your dataset list or search results.
 - **No table access**: Even if you can access the dataset, the table is hidden from your table list.
 - **View-only (viewer role)**: All edit controls in the table viewer are disabled (grayed out). You can see and analyze the data but cannot save changes.
 - **Edit access**: All controls are available and you can save your changes to the table.
-
----
 
 ## Best Practices
 
@@ -167,8 +164,6 @@ The effective permission for accessing a table is the **logical AND** of the dat
 4. **Document your sharing**: Keep track of who has access to what tables; complicated permission hierarchies can become confusing.
 
 5. **Leverage table-level access**: Use private tables within a public dataset to hide sensitive or intermediate data while sharing the final, cleaned data.
-
----
 
 ## Troubleshooting
 
@@ -183,10 +178,3 @@ The effective permission for accessing a table is the **logical AND** of the dat
 
 **Q: I can't set a table to Public even though the dataset is Public.**
 - **A:** This is expected behavior when the dataset is `Private` — you cannot make a table public if its dataset is private, because the most restrictive permission applies.
-
----
-
-## Related
-
-- [Exploring the Interface](./exploring-interface/README.md) — Navigate datasets and tables
-- [Uploading Data](./starting-project.md#uploading-or-creating-a-dataset) — How to create datasets and tables
