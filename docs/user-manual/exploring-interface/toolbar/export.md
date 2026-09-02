@@ -17,6 +17,9 @@ Pipelines require all changes to be saved to the server before they can be expor
 
 Once you have configured and confirmed the parameters, the file will be automatically downloaded.
 
+## Schema Report Generation
+![Schema Report HTML image](/img/schema-report-html.gif)
+
 ## Enrichment Pipeline Generation
 :::tip
 Watch this short video to see the Enrichment Pipeline Generation in action:

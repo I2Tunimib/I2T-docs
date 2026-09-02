@@ -52,7 +52,16 @@ will open the Table Viewer, where you can begin the semantic enrichment process.
 ## Reviewing Tables
 Once your data is uploaded, you can quickly review the status of your tables directly from the dashboard using the
 quick action buttons located next to each table name (visible on hover):
-- **Compliance Report**: Opens a window to view the latest compliance check (e.g., GDPR). _(Learn more about [Compliance Check](../../enrichment-operations/compliance.md))_
-- **Schema Graph**: Displays a visual representation of the table schema. _(Learn more about [Graph View](../graph-view/introduction))_
+- **Compliance Report**: Opens a window to view the latest compliance check (e.g., GDPR). _(Learn more about [Compliance Check](./enrichment-operations/compliance.md))_
+- **Schema Graph**: Displays a visual representation of the table schema. _(Learn more about [Graph View](./exploring-interface/graph-view/introduction))_
 - **Pipeline**: Opens the operation control panel. You can inspect these operations either in a sequential list or in a tree
-  view, which illustrates the logical dependencies and helps you trace the enrichment workflow.
+  view, which illustrates the logical dependencies and helps you trace the enrichment workflow. _(Learn more about [Pipeline Control](./exploring-interface/table-view/pipeline))_
+
+## Advanced Viewing Options (Raw JSON & Grid)
+SemT-X offers specialized view toggles to inspect your datasets and tables structurally:
+- **Datasets**: Switch from **List** view to **Raw** view inspecting datasets in JSON format. If specific datasets are selected, the
+  view dynamically filters to show only those items; otherwise, all datasets are displayed.
+- **Tables**: Toggle between **List**, **Raw** and **Grid** view. The last one includes a Schema Graph preview along with the detailed list of columns for each table. 
+  Just like the datasets, selecting specific tables filters the output, while leaving everything unselected displays all tables.
+  
+![View Dashboard image](/img/view-dashboard.gif)

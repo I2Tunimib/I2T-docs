@@ -20,7 +20,7 @@ might depend on a previous reconciliation.
 The system manages dependencies to maintain data consistency offering advanced management capabilities that go beyond
 simple undo/redo actions:
 - **Safe Deletion**: When no dependencies are violated.
-- **Cascade Delete**: When deleting an operation that others depend on, all the dependent operations as well will be removed as well.
+- **Cascading Deletion**: When deleting an operation that others depend on, all the dependent operations as well will be removed as well.
 
 | Operation      | When can I delete an operation?                                                                                                             |
 |----------------|---------------------------------------------------------------------------------------------------------------------------------------------|

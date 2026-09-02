@@ -5,7 +5,7 @@ sidebar_position: 2
 # Graph Area
 ## Legend
 The Graph Area supports two visualization modes, toggled via the buttons in the top right corner:
-- Standard View: The default mode, where node colors are determined by their basic semantic role.
+- **Standard View**: The default mode, where node colors are determined by their basic semantic role.
   <ul style={{ listStyle: 'none', paddingLeft: '10px', marginTop: '8px' }}>
     <li style={{ marginBottom: '10px' }}>
       <span style={{ backgroundColor: '#2ecc71', width: '10px', height: '10px', borderRadius: '50%', display: 'inline-block', marginRight: '10px', verticalAlign: 'middle' }}></span>
@@ -20,7 +20,7 @@ The Graph Area supports two visualization modes, toggled via the buttons in the 
       <b>Literal</b>: Concrete values from the table (like strings, numbers, or dates).
     </li>
   </ul>
-- Compliance View: Activated by clicking the `Show compliance` button. n this mode, node colors are determined by their data privacy classification.
+- **Compliance View**: Activated by clicking the `Show compliance` button. n this mode, node colors are determined by their data privacy classification.
     <ul style={{ listStyle: 'none', paddingLeft: '10px', marginTop: '8px' }}>
     <li style={{ marginBottom: '10px' }}>
       <span style={{ backgroundColor: '#dc143c', width: '10px', height: '10px', borderRadius: '50%', display: 'inline-block', marginRight: '10px', verticalAlign: 'middle' }}></span>
@@ -40,12 +40,11 @@ The Graph Area supports two visualization modes, toggled via the buttons in the 
     </li>
   </ul>
 
-<div style={{textAlign: 'center'}}>
-  <img 
-    src={require('@site/static/img/graph-area.png').default}
-    alt="Graph Area" 
-    style={{width: '80%', marginBottom: '8px'}} 
-  />
+<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', margin: '20px 0' }}>
+  <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', alignItems: 'flex-start' }}>
+    <img src={require('@site/static/img/graph-default.png').default} style={{ width: '75%', maxWidth: '400px', height: 'auto' }} />
+    <img src={require('@site/static/img/graph-compliance.png').default} style={{ width: '75%', maxWidth: '400px', height: 'auto' }} />
+  </div>
 </div>
 
 You can explore and interact with the graph using the following actions:
@@ -55,6 +54,8 @@ You can explore and interact with the graph using the following actions:
   by clicking on the respective button in the top right.
 - Select a node to view its detailed information in the Sidebar and the corresponding data in the Column Values section.
 - Select a link to view its detailed information in the Sidebar.
+- Show/Hide compliance information to toggle between viewing the default schema and the one integrated with compliance status and classification
+  by clicking on the respective button in the top right.
 
 ## Column Values
 Located at the bottom left of the Graph Area, this section is tightly connected to node selection. Initially, the area 
@@ -65,7 +66,7 @@ automatically to display the values of the corresponding column.
   <img 
     src={require('@site/static/img/suggestion.png').default}
     alt="Suggestion" 
-    style={{width: '35%', marginBottom: '8px'}} 
+    style={{width: '25%', marginBottom: '8px'}} 
   />
 </div>
 
@@ -78,7 +79,7 @@ This view allows you to:
   <img 
     src={require('@site/static/img/column-values.png').default}
     alt="Column Values" 
-    style={{width: '35%', marginBottom: '8px'}} 
+    style={{width: '25%', marginBottom: '8px'}} 
   />
 </div>
 

@@ -31,6 +31,14 @@ When compliance is enabled, this section provides an overview of the dataset's p
 - **Confidence score**: A percentage reflecting the reliability of the classification.
 - **Reasoning**: A detailed explanation of the findings, including which data types (e.g., personal, quasi-identifiers) were detected and why.
 
+<div style={{textAlign: 'center'}}>
+  <img 
+    src={require('@site/static/img/compliance-summary.png').default}
+    alt="Compliance Summary" 
+    style={{width: '35%', marginBottom: '8px'}} 
+  />
+</div>
+
 ## Selected Node/Link Details
 The second part of the Sidebar is dynamic and updates according to the element selected in the graph. After selecting an
 element, this section can be collapsed using the `-` button, allowing you to hide the details and focus on the graph
