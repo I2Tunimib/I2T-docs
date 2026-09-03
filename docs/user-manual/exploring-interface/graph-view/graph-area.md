@@ -72,7 +72,7 @@ automatically to display the values of the corresponding column.
 
 This view allows you to:
 - Inspect the **actual data values** associated with a semantic node, scrolling through the table.
-- Check the **kind, role and types** of a node by observing its content.
+- Check the **kind, semantic class for entities or datatype for literals, role and types** of a node by observing its content.
 - Identify patterns, repetitions, missing values, or inconsistencies in the data.
 
 <div style={{textAlign: 'center'}}>

@@ -57,7 +57,7 @@ quick action buttons located next to each table name (visible on hover):
 - **Pipeline**: Opens the operation control panel. You can inspect these operations either in a sequential list or in a tree
   view, which illustrates the logical dependencies and helps you trace the enrichment workflow. _(Learn more about [Pipeline Control](./exploring-interface/table-view/pipeline))_
 
-## Advanced Viewing Options (Raw JSON & Grid)
+## Advanced Viewing Modes
 SemT-X offers specialized view toggles to inspect your datasets and tables structurally:
 - **Datasets**: Switch from **List** view to **Raw** view inspecting datasets in JSON format. If specific datasets are selected, the
   view dynamically filters to show only those items; otherwise, all datasets are displayed.
