@@ -4,7 +4,7 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 
 export default function Home() {
   return (
-    <Layout title="SemTUI">
+    <Layout title="SemT-X">
       <main>
         <div style={{textAlign: 'center', margin: '3rem 0'}}>
           <h1 style={{fontSize: '3rem'}}>SemT-X</h1>
