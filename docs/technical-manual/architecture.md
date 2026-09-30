@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # Framework Architecture
 
-The tool is presented as a framework and not as a simple application. SemTUI is developed as a prototype and it is intended to provide extendable
+The tool is presented as a framework and not as a simple application. SemT-X is developed as a prototype and it is intended to provide extendable
 components that can be selectively interchanged, added or modified by a developer. It should provide standard ways, mechanisms and solid structures
 to build additional functionalities or integrate new services.
 

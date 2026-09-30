@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'SemTUI',
+  title: 'SemT-X',
   tagline: 'Dinosaurs are cool',
   url: 'https://i2tunimib.github.io/I2T-docs/',
   baseUrl: '/I2T-docs/',
@@ -38,7 +38,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'SemTUI',
+        title: 'SemT-X',
         logo: {
           alt: 'My Site Logo',
           src: 'img/logo-react.svg',

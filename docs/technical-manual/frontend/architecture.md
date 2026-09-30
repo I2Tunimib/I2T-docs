@@ -27,7 +27,7 @@ The frontend web application is essentialy built in three layers: **application 
 ## Technology stack
 - **React**: a powerful JavaScript library for building interactive interfaces, and it's known for its
 declarative code, which makes updating components smooth and efficient. The choice of it was a strategic decision for
-SemTUI’s frontend, since it is still a prototype and a research tool which can provide innovative functionalities
+SemT-X’s frontend, since it is still a prototype and a research tool which can provide innovative functionalities
 supported by the freedom of the library.
 - **Typescript**: a strongly typed programming language that builds on Javascript has become almost essential in any Javascript environment. Typescript gives developers better experience
 and tooling allowing developers to build more solid and robust applications.

@@ -5,7 +5,7 @@ sidebar_position: 3
 # Thunk middleware
 Redux doesn’t allow any side effects in its reducer
 functions, preventing developers to encapsulate the whole application logic
-in a single place. SemTUI makes use of a particular middleware layer, introduced between an action dispatcher and a reducer function, allowing to
+in a single place. SemT-UI makes use of a particular middleware layer, introduced between an action dispatcher and a reducer function, allowing to
 execute any side effects before reaching a reducer. This middleware layer is
 called Thunk, which means that a piece of code is still working, even if it does some delays:
 rather than executing some logic now, a function can be called to perform an action later on.
@@ -23,7 +23,7 @@ store.
   <img style={{width: '600px'}} src="/I2T-docs/img/thunk-flow.png" />
 </div>
 
-As a framework, SemTUI builds on top of thunks to support future thunk
+As a framework, SemT-X builds on top of thunks to support future thunk
 actions, exposing for each of them a status of loading, error and fullfilled.
 Each status can be mapped to a specific reducer function allowing to be
 automatically executed based on the async request result. Those statuses

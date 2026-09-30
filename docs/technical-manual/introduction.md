@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Introduction
 
-SemTUI is a fully
+SemT-X is a fully
 modular framework for the Semantic Enrichment of Tabular Data,
 adoptable by both experts and non-experts in the context of semantics.
 Nowadays, the enrichment task is at the core of almost every data
@@ -71,7 +71,7 @@ Those annotations may be generated separately from different interpretation task
 task to support the other. For example CEA can provide insightful information about the CTA (e.g.: the types of the annotated cells of a column might
 be entities of type Actor which also identify the column type).
 One example and state-of-the-art approach for the the automatic STI is Mantis Table presented in the SemTab 2021. This approach is also manageble
-from an earlier version of SemTUI called tUI. Indeed, starting from this
+from an earlier version of SemT-UI called tUI. Indeed, starting from this
 year (2021), the SemTab challenge as well as evaluating the STI approach,
 also evaluates the user interface used to perform the task. This is because
 the challenge is becoming aware of the importance of the task even for less
@@ -177,7 +177,7 @@ making use of the Linked Data.
 
 <!-- ## Framework
 
-SemTUI is presented as a framework and not as a simple interface or service. SemTUI has been designed to be fully modular and customizable for every kind of future need. The backend server is a **NodeJS** server that can be enhanced with external reconciliation and extension services without the need of rewriting part of the architecture.
+SemT-X is presented as a framework and not as a simple interface or service. SemT-X has been designed to be fully modular and customizable for every kind of future need. The backend server is a **NodeJS** server that can be enhanced with external reconciliation and extension services without the need of rewriting part of the architecture.
 
 The same goes for the frontend UI which is built using **React** and with customizable components so that they can be easily modified and extended.
 
@@ -185,6 +185,6 @@ The same goes for the frontend UI which is built using **React** and with custom
 
 The current release of the system is available here: **[semtui.io](http://titan-inside.disco.unimib.it:3003/)**
 
-The github repository of the frontend is available here: **[SemTUI-frontend](https://github.com/I2Tunimib/I2T-frontend)**
+The github repository of the frontend is available here: **[SemTX-frontend](https://github.com/I2Tunimib/I2T-frontend)**
 
-The github repository of the backend is available here: **[SemTUI-backend](https://github.com/I2Tunimib/I2T-backend)** -->
+The github repository of the backend is available here: **[SemTX-backend](https://github.com/I2Tunimib/I2T-backend)** -->

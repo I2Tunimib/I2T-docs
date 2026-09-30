@@ -8,7 +8,7 @@ web APIs are built using NodeJS or one of its frameworks, e.g.: [Express](https:
 [NestJS](https://nestjs.com/), [NextJs](https://nextjs.org/). The environment around NodeJS is built to support developers by integrating third party libraries that powers those systems with
 even more features. NodeJS is a great option for performance, security, scalability and development using some of the most modern technology stacks.
 For those reasons the choices of NodeJS and Express were made to develop
-the SemTUI backend functionalities. 
+the SemT-X backend functionalities. 
 
 The backend server has two main roles to fulfill: **External services aggregator** and **Datasets and tables handler**.
 

@@ -3,7 +3,7 @@ sidebar_position: 7
 ---
 
 # Table Viewer
-The table viewer is one of the fundamental components of SemTUI, it allows
+The table viewer is one of the fundamental components of SemT-UI, it allows
 users to efficiently visualize a table and perform various kinds of action on
 it. Before going into the details of each feature, the anatomy of the UI is
 presented to the reader.
@@ -85,7 +85,7 @@ To efficiently render the table, the [TanStack Table](https://tanstack.com/table
 which provides a set of APIs to build lightweight, fast, and extensible tables.
 Its key feature is its "headless" nature; it doesn't provide any pre-built UI elements, 
 giving developers full control to design their own table UI using performant APIs
-(like React Hooks). Since tables are a core element of SemTUI, and it's a prototype,
+(like React Hooks). Since tables are a core element of SemT-UI, and it's a prototype,
 it's important to ensure that its architecture is future-proof in terms of development.
 
 ### 7. Column Header Actions

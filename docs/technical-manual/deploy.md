@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # Deploy
 
-At the moment the frontend and server application are both served by the backend. At deploy time, the frontend application is built in static files which are then served by the backend server, while also providing SemTUI APIs.
+At the moment the frontend and server application are both served by the backend. At deploy time, the frontend application is built in static files which are then served by the backend server, while also providing SemT-X APIs.
 
 ## GitHub CD workflow
 

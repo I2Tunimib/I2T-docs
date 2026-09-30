@@ -16,7 +16,7 @@ Indeed, pure React has troubles in propagating data between siblings components,
 down through many layers of the components tree. Redux solves this problem, by granting each component direct access to a global store and retrieve
 the needed data for each of them.
 
-SemTUI utilizes the application store for many purposes: handling data
+SemT-UI utilizes the application store for many purposes: handling data
 changes in an efficient way, storing API responses, caching data, and handling
 global actions between components. The most important use of it is to
 maintain the tabular data in memory in such a way that changes to it are
@@ -55,7 +55,7 @@ cache is first checked returning the cached value if present.
 </div>
 
 ## Slice structure
-SemTUI organizes its store in slices as suggested from the [Redux Toolkit documentation](https://redux-toolkit.js.org/tutorials/quick-start).
+SemT-UI organizes its store in slices as suggested from the [Redux Toolkit documentation](https://redux-toolkit.js.org/tutorials/quick-start).
 Each slice defines a part of the store state, also defining how the state should change based on an action.
 Each store slice of the application has a structure based on the previously depicted dataflow:
 
