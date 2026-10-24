@@ -7,12 +7,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'SemT-X',
-  tagline: 'Dinosaurs are cool',
+  tagline: 'A framework for semantic enrichment of tabular data',
   url: 'https://i2tunimib.github.io/I2T-docs/',
   baseUrl: '/I2T-docs/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/logo_semtx.svg',
   organizationName: 'I2Tunimib', // Usually your GitHub org/user name.
   projectName: 'I2T-docs', // Usually your repo name.
 
