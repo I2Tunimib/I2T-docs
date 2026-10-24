@@ -41,7 +41,7 @@ const config = {
         title: 'SemT-X',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/logo-react.svg',
+          src: 'img/logo_semtx.svg',
         },
         items: [
           {
