@@ -26,5 +26,6 @@ the tool.
     - Short video Tutorial: https://www.youtube.com/watch?v=XMfRQueX48M&t=307s
     - Short video describing the Entity Matching Revision step within the SemT-X framework: https://www.youtube.com/watch?v=4gUQJE8cHVQ
     - Short video explaining the Enrichemnt Pipeline Generation step within the SemT-X framework: https://www.youtube.com/watch?v=IcpzVJ6Nm7I&t=38s
+    - Short video explaining the Compliance Assessment step within the SemT-X framework: https://www.youtube.com/watch?v=ZqcuemO53bA
     - Short video describing an application of SemT-X to enrich procurement data using Wikidata: https://youtu.be/vLj4aWUnakE?si=zWESpwbs0WC7edhI
     - Short video explaining the visualization of annotations computed by a semantic table interpretation and annotation system in SemT-X: [https://www.youtube.com/watch?v=B1skOttuYyM](https://www.youtube.com/watch?v=JP4ALTIjd9w)       
