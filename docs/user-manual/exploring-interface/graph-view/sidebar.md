@@ -27,7 +27,7 @@ This fixed section displays general information about the entire graph:
 
 ## Compliance Summary
 When compliance is enabled, this section provides an overview of the dataset's privacy status:
-- **Status**: Indicates whether the data is "GDPR compliant" or not, only if a compliance check has been performed.
+- **Status**: Indicates whether the data is "GDPR compliant" or not, only if a compliance assessment has been performed.
 - **Confidence score**: A percentage reflecting the reliability of the classification.
 - **Reasoning**: A detailed explanation of the findings, including which data types (e.g., personal, quasi-identifiers) were detected and why.
 

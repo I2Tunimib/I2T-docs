@@ -22,7 +22,7 @@ and **Generative AI** work in synergy to classify schemas (NER) and assist users
 and extension tasks driven by Large Language Models.
 
 While the data evolves, the system maintains transparency and security. Users can evaluate their datasets against 
-regulatory standards like GDPR through the **Compliance Check**, while gaining a deeper understanding of the data structure 
+regulatory standards like GDPR through the **Compliance Assessment**, while gaining a deeper understanding of the data structure 
 via multiple **Visualization** modes—including interactive Tables, Raw JSON, and Knowledge Graphs. Once the enrichment is 
 complete, the entire process can be exported via **Pipeline Generation**, transforming an interactive session into a 
 reproducible Python or Jupyter workflow ready for full-scale data execution.

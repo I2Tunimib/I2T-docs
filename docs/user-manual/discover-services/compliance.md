@@ -40,7 +40,7 @@ Suggested actions:
 * **remove**: Delete the column if unnecessary for the specified purpose.
 
 :::tip
-  Watch this short video to see the GDPR Compliance Check in action:
+  Watch this short video to see the GDPR Compliance Assessment in action:
 
   <div style={{textAlign: 'center', margin: '1.5rem 0'}}>
     <iframe

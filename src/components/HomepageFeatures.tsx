@@ -57,7 +57,7 @@ const FeatureList: FeatureItem[] = [
     description: (<>Automatically annotate either the full table (Semantic Table Interpretation) or classify the column schema (NER).</>),
   },
   {
-    title: 'Compliance Check',
+    title: 'Compliance Assessment',
     to: '/user-manual/enrichment-operations/compliance',
     image: compliance,
     description: (<>Evaluate the current state of your table's compliance against different privacy standards and legal regulations.</>),

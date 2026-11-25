@@ -25,5 +25,5 @@ Column headers also show the following data:
 - **Kind**: Indicates whether they contain entities or literal values.
 - **Reconciliation service name**: The source used for entity matching.
 - **Reconciliation status**: Indicates whether they were fully, partially, or not reconciled.
-- **Compliance check status**: Indicates whether the column is compliant with privacy standards or legal regulations.
+- **Compliance Assessment status**: Indicates whether the column is compliant with privacy standards or legal regulations.
 - **Compliance classification**: Indicates the nature of the data from a privacy and compliance perspective.

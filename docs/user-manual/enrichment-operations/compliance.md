@@ -18,7 +18,7 @@ system provides a Compliance Report and immediate visual feedbacks to help you i
 - **Column Badges**: In the Table View, the column headers are automatically updated with specific badges indicating
   the compliance status and the data classification (e.g., Personal Data, Quasi-Identifier). Hovering over these badges 
   displays detailed insights, including the reasoning with the confidence score of the classification.
-- **Detailed Insights**: By opening the Column Metadata Dialog, you can view the results obtained from the compliance check
+- **Detailed Insights**: By opening the Column Metadata Dialog, you can view the results obtained from the compliance assessment
   for that column.
 
 The compliance assessment is also integrated into the Graph Visualization to provide a semantic overview of your privacy

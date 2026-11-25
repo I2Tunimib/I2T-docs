@@ -39,6 +39,12 @@ Once your dataset is created and within the dataset view, you can import your sp
 3. Optionally, provide a Table name.
 4. Click `Confirm` to import the table.
 
+:::info NOTE
+You can also rename a table at any time after importing by **right-clicking** on its name in the dataset list (available
+only if you are the table **owner**). Both during upload and when renaming, if a table with the same name already exists
+in that dataset, a numeric counter is automatically appended.
+:::
+
 ## Searching for Datasets and Tables
 As your workspace grows, you can quickly locate specific projects using the Search Bar located at the top of the dashboard.
 - **Hybrid Results with Labels**: The dropdown menu displays both Datasets (folders) and Tables (files). To help you 
@@ -52,7 +58,7 @@ will open the Table Viewer, where you can begin the semantic enrichment process.
 ## Reviewing Tables
 Once your data is uploaded, you can quickly review the status of your tables directly from the dashboard using the
 quick action buttons located next to each table name (visible on hover):
-- **Compliance Report**: Opens a window to view the latest compliance check (e.g., GDPR). _(Learn more about [Compliance Check](./enrichment-operations/compliance.md))_
+- **Compliance Report**: Opens a window to view the latest compliance assessment (e.g., GDPR). _(Learn more about [Compliance Assessment](./enrichment-operations/compliance.md))_
 - **Schema Graph**: Displays a visual representation of the table schema. _(Learn more about [Graph View](./exploring-interface/graph-view/introduction))_
 - **Pipeline**: Opens the operation control panel. You can inspect these operations either in a sequential list or in a tree
   view, which illustrates the logical dependencies and helps you trace the enrichment workflow. _(Learn more about [Pipeline Control](./exploring-interface/table-view/pipeline))_
